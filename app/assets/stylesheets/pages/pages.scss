@@ -7,7 +7,7 @@
   font-size: $font-size-logo;
 }
 
-.container-header{
+.container-landing{
   @include flex-row-center();
   >.label{
     width: 40%;
@@ -33,7 +33,7 @@
         line-height: 5rem;
       }
     }
-    @media only screen and (max-width: 320px) {
+    @media only screen and (max-width: 450px) {
       >.header{
         font-size: $font-size-6;
         line-height: 1rem;
@@ -87,7 +87,7 @@
   }
 }
 
-.container-body{
+.container-landing-body{
   margin-top: 10vw;
   @include flex-col-center();
   @media only screen and (max-width: 726px) {
@@ -104,7 +104,7 @@
       @media only screen and (max-width: 726px) {
         line-height: 5rem;
       }
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 450px) {
         font-size: $font-size-6;
         line-height: 4rem;
       }
@@ -114,7 +114,7 @@
       padding-top: 2rem;
       font-size: $font-size-1;
       color: $color-black-2;
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 450px) {
         font-size: $font-size-0;
       }
     }
@@ -132,7 +132,7 @@
         margin-top: 4rem;
       }
     }
-    @media only screen and (max-width: 320px) {
+    @media only screen and (max-width: 450px) {
       margin-top: 1rem;
     }
     >.gallery-card{
@@ -182,7 +182,7 @@
           background-size: cover;
         }
       }
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 450px) {
         height: 20rem;
         width: 20rem;
         >.food-img{
@@ -214,10 +214,80 @@
         height: 30rem;
         width: 30rem;
       }
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 450px) {
         height: 20rem;
         width: 20rem;
       }
     }
+  }
+}
+
+.container-landing-about{
+  margin-top: 10vw;
+  width: 100%;
+  // background-color: red;
+  @include flex-col-center();
+  @media only screen and (max-width: 600px) {
+    margin-top: 20vw;
+    >:first-child{
+      @include flex-col-center();
+      flex-direction: column-reverse;
+    }
+    >*{
+      @include flex-col-center();
+    }
+  }
+  >.container-section{
+    width: 100%;
+    @include flex-row-center();
+    
+    >.label{
+      width: 40rem;
+      @media only screen and (max-width: 600px) {
+        width: 90%;
+      }
+      >.header{
+        color: $color-blue-4;
+        font-size: $font-size-6;
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 700;
+        @media only screen and (max-width: 600px) {
+          font-size: $font-size-5;
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+      }
+
+      >.subheader{
+        font-size: $font-size-1;
+        color: $color-black-2;
+        @media only screen and (max-width: 600px) {
+          text-align: center;
+        }
+      }
+    }
+
+    >.image{
+      background-color: blue;
+      height: 50rem;
+      width: 35rem;
+      margin: 4rem;
+      @media only screen and (max-width: 600px) {
+        width: 100%rem;
+        height: 20rem;
+      }
+      &.img-1{
+        background-image: url("landing-img-1.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      &.img-2{
+        background-image: url("landing-img-2.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+
+
   }
 }
