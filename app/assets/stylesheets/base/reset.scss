@@ -15,21 +15,24 @@ Birthstone Bounce */
 html{
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
-  color: $color-black;
+  color: $color-black-4;
 }
 
 body{
+  font-size: 1.4rem;
   width: 100%;
+  @include flex-col-center();
 }
 
 a{
   font-family: 'Roboto', sans-serif;
-  color: $color-black;
+  color: $color-black-4;
   text-decoration: none;
 }
 
 a:hover{
   text-decoration: none;
+  color: inherit;
 }
 
 button{
