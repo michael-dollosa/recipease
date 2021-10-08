@@ -6,3 +6,83 @@
   font-family: 'Birthstone Bounce', cursive;
   font-size: $font-size-logo;
 }
+
+.container-header{
+  @include flex-row-center();
+  >.label{
+    width: 40%;
+    >.header{
+      color: $color-blue-4;
+      font-size: $font-size-11;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 700;
+      line-height: 8rem;
+    }
+    >.subheader{
+      padding-top: 2rem;
+      font-size: $font-size-1;
+      color: $color-black-2;
+    }
+    >.call-to-action{
+      padding-top: 2rem;
+    }
+
+    @media only screen and (max-width: 1440px) {
+      >.header{
+        font-size: $font-size-10;
+        line-height: 5rem;
+      }
+    }
+    @media only screen and (max-width: 320px) {
+      >.header{
+        font-size: $font-size-6;
+        line-height: 1rem;
+      }
+
+      >.subheader{
+        font-size: $font-size-0;
+      }
+    }
+
+    
+  }
+
+  >.image{
+    height: 100%;
+    width: 50%;
+    // background-color: lavenderblush;
+    @include flex-row-center();
+    >img{
+      width: 60vw;
+      @media only screen and (max-width: 900px) {
+        height: 60%;
+      }
+      @media only screen and (max-width: 760px) {
+        width: 80vw;
+        height: 80%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 760px) {
+    @include flex-col-center();
+    flex-direction: column-reverse;
+    >.label{
+      @include flex-col-center();
+      width: 100%;
+      >.header{
+        text-align: center;
+        line-height: 5rem;
+      }
+      >.subheader{
+        padding-top: 2rem;
+        text-align: center;
+      }
+    }
+
+    >.image{
+      width: 100%;
+      
+    }
+  }
+}
