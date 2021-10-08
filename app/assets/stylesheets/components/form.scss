@@ -1,0 +1,85 @@
+form{
+  margin-top: 1rem;
+  // max-width: 35rem;
+  width: 100%;
+  @media only screen and (max-width: 390px) {
+    width: 95%;
+  }
+
+  .field{
+    &.align-row{
+      @include flex-row-center();
+    }
+  }
+
+  >.remember-me{
+    display: flex;
+    align-items: center;
+    height: 1.1rem;
+    // @include flex-row();
+    >input[type="checkbox"]{
+      width: auto;
+      margin-right: 1rem;
+    }
+    >label{
+      height: 100%;
+    }
+    margin-bottom: 4rem;
+  }
+
+  >.field >input,
+  >.field >.field_with_errors >input{
+    margin-bottom: 1.3rem;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    padding: 0.7rem 1rem;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    &::placeholder{
+      opacity: .5;
+    }
+  }
+
+  >.field >label,
+  >.field >em,
+  >.field >.field_with_errors >label,
+  >.field >.field_with_errors >em{
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size-0;
+    font-weight: 700;
+    color: $color-black-1;
+  }
+
+  >.field > input[type="submit"]{
+    width: 100%;
+    border-style: none;
+    color: white;
+    &.wrap{
+      width: fit-content;
+      @media only screen and (max-width: 550px) {
+        width: 100%;
+      }
+    }
+  }
+
+  >.actions > input[type="submit"]{
+    width: 100%;
+    border-style: none;
+    color: white;
+  }
+}
+
+.devise-shared-link{
+  margin-top: 1.3rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: $color-black-4;
+}
+
+.devise-forgot-password{
+  font-family: inherit;
+  text-decoration: underline;
+  color: #727272;
+}

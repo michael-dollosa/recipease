@@ -81,3 +81,19 @@
     </div>
   </div>
 </section>
+
+<section class="container-landing-newsletter">
+  <div class="label">
+  Subscribe to our Newsletter
+  </div>
+  <div class="newsletter-form">
+    <%= form_for :users do |f| %>
+    <div class="field align-row">
+      <%= f.text_field :column_name %>
+      <%= f.submit "Subscribe", class: "btn-red wrap" %>
+    </div>
+    <% end %>
+  </div>
+  
+  
+</section>
