@@ -1,0 +1,7 @@
+footer{
+  @include flex-col-center();
+  >.label{
+    margin-top: 4rem;
+    text-align: center;
+  }
+}

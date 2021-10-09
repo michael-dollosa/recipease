@@ -299,11 +299,11 @@
 .container-landing-newsletter{
   margin-top: 4rem;
   width: 100%;
-  height: 30rem;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url("newsletter-bg.jpeg");
+  height: 35rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.651),rgba(0, 0, 0, 0.616)), url("newsletter-bg.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 5rem;
+  border-radius: 3rem;
   @include flex-col-center();
   justify-content: center;
   @media only screen and (max-width: 600px) {
@@ -335,6 +335,7 @@
     }
   }
   >.newsletter-form{
+    margin-top: 3rem;
     width: 40vw;
     // min-width: 50rem;
     @media only screen and (max-width: 800px) {
