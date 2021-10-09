@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <% unless request.fullpath.start_with?("/users/sign_") %>
     <nav>
       <%= render 'layouts/navigation'%>
     </nav>
@@ -19,5 +20,10 @@
     <footer>
       <%= render 'layouts/footer'%>
     </footer>
+    <% else %>
+    <main class="max">
+      <%= yield %>
+    </main>
+    <% end %>
   </body>
 </html>
