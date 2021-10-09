@@ -2,6 +2,9 @@ nav{
   // background-color: red;
   width: 90vw;
   padding: 3rem 0;
+  @media only screen and (min-width: 1550px) {
+    width: 80vw;
+  }
 }
 
 main{
