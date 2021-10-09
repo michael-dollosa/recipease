@@ -152,6 +152,15 @@
         width: 23rem;
         background-repeat: no-repeat;
         background-size: cover;
+        &.img-1{
+          background-image: image-url("food-1.jpg");
+        }
+        &.img-2{
+          background-image: image-url("food-2.jpg");
+        }
+        &.img-3{
+          background-image: image-url("food-3.jpg");
+        }
       }
       >.food-name{
         padding-top: 1rem;
@@ -283,12 +292,12 @@
         height: 20rem;
       }
       &.img-1{
-        background-image: url("landing-img-1.jpeg");
+        background-image: image-url("landing-img-1.jpeg");
         background-size: cover;
         background-repeat: no-repeat;
       }
       &.img-2{
-        background-image: url("landing-img-2.jpeg");
+        background-image: image-url("landing-img-2.jpeg");
         background-size: cover;
         background-repeat: no-repeat;
       }
