@@ -9,13 +9,11 @@ module Mealdb
     def self.search_by_ingredient(ingredient)
       # clean up spaces in search string
       str = ingredient.gsub(/\s+,/, ',').gsub(/,\s+/, ',').strip
-      response = @client.connection.get("filter.php?i=#{str}")
-      JSON.parse(response.body)
+      @client.connection.get("filter.php?i=#{str}")
     end
 
     def self.search_by_meal(meal_id)
-      response = @client.connection.get("lookup.php?i=#{meal_id}")
-      JSON.parse(response.body)
+      @client.connection.get("lookup.php?i=#{meal_id}")
     end
 
     def self.test

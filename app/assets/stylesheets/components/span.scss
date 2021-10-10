@@ -5,4 +5,10 @@ span{
   &.blue{
     color: $color-blue-4;
   }
+
+  &.highlight-red{
+    background: url("https://s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=hsl(349,100%,87%)");
+    margin: -2px -6px;
+    padding:  2px  6px;
+  }
 }
