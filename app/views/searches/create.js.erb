@@ -1,0 +1,2 @@
+document.querySelector("#searchLabel").innerHTML = "<%= @search_str %>"
+document.querySelector(".search-result-container").innerHTML = "<%= j render partial: "searches/result", locals: { recipes: @recipes } %>"

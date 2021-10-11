@@ -1,0 +1,30 @@
+.container-search{
+  width: 100%;
+  min-height: 90vh;
+  @include flex-col();
+  >.container{
+    width: 100%;
+    >*{
+      margin-bottom: 2rem;
+    }
+
+    >.search-label{
+      >h1>span{
+        color: $color-red-4;
+      }
+    }
+
+    >.search-result{
+      width: 100%;
+      >.search-result-container{
+        width: 100%;
+        @include flex-row();
+        flex-wrap: wrap;
+
+        >*{
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<section class="container-search">
+  <section class="container">
+    <%= form_with url: searches_path, method: :post do |form| %>
+    <div class="field">
+      <div class="search-icon"></div>
+      <%= text_field_tag(:search, nil, placeholder: "Search ingredient e.g. eggs,chicken,etc..") %>
+    </div>
+    <% end %>
+    <section class="search-label">
+      <h1>Results for "<span id="searchLabel">sample result here</span>"</h1>
+    </section>
+    
+    <section class="search-result">
+      <section class="search-result-container">
+      <% 15.times do %>
+        <div class="card-container">
+          <div class="card-img">
+            <img src="https://www.themealdb.com/images/media/meals/n7qnkb1630444129.jpg">
+          </div>
+          <div class="card-label">
+            Chivito Uruguayo
+          </div>
+        </div>
+      <% end %>
+      </section>
+    </section>
+  </section>
+</section>
