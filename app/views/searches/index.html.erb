@@ -7,18 +7,18 @@
     </div>
     <% end %>
     <section class="search-label">
-      <h1>Results for "<span id="searchLabel">sample result here</span>"</h1>
+      <h1>Suggested for you</h1>
     </section>
     
     <section class="search-result">
       <section class="search-result-container">
-      <% 15.times do %>
+      <% @recipes&.each do |recipe| %>
         <div class="card-container">
           <div class="card-img">
-            <img src="https://www.themealdb.com/images/media/meals/n7qnkb1630444129.jpg">
+            <img src=<%= recipe["strMealThumb"] %> />
           </div>
           <div class="card-label">
-            Chivito Uruguayo
+            <%= recipe["strMeal"] %>
           </div>
         </div>
       <% end %>

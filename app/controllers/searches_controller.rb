@@ -1,5 +1,9 @@
 class SearchesController < ApplicationController
-  def index; end
+  def index
+    # sample suggestion for user
+    @result = Mealdb::Client.search_by_ingredient('chicken breast')
+    @recipes = (JSON.parse(@result.body))['meals']
+  end
 
   def create
     @search_str = params[:search]
