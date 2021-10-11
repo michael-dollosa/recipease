@@ -1,13 +1,13 @@
 <section class="container-search">
   <section class="container">
-    <%= form_with url: root_path, method: :get do |form| %>
+    <%= form_with url: searches_path, method: :post do |form| %>
     <div class="field">
       <div class="search-icon"></div>
-      <%= text_field_tag(:search, params[:search], placeholder: "Search ingredient e.g. eggs,chicken,etc..") %>
+      <%= text_field_tag(:search, nil, placeholder: "Search ingredient e.g. eggs,chicken,etc..") %>
     </div>
     <% end %>
     <section class="search-label">
-      <h1>Results for "<span>sample result here</span>"</h1>
+      <h1>Results for "<span id="searchLabel">sample result here</span>"</h1>
     </section>
     
     <section class="search-result">
@@ -22,14 +22,7 @@
           </div>
         </div>
       <% end %>
-        
-      
       </section>
-    
     </section>
-      
-    
-  
   </section>
-
 </section>

@@ -1,0 +1,10 @@
+<% recipes.each do |recipe| %>
+  <div class="card-container">
+    <div class="card-img">
+      <img src=<%= recipe["strMealThumb"] %> />
+    </div>
+    <div class="card-label">
+      <%= recipe["strMeal"] %>
+    </div>
+  </div>
+<% end %>

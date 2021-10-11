@@ -2,7 +2,7 @@
   border: 1px solid $color-black-0;
   border-radius: 1rem;
   padding: 1.5rem;
-  height: 22rem;
+  height: 23rem;
   width: 25rem;
   @include flex-col();
   >.card-img{
@@ -18,5 +18,7 @@
     width: 100%;
     text-align: center;
     margin-top: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }

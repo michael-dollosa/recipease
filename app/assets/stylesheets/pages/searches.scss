@@ -1,13 +1,9 @@
 .container-search{
   width: 100%;
-  // background-color: bisque;
   min-height: 90vh;
   @include flex-col();
-
   >.container{
-    // background-color: cadetblue;
     width: 100%;
-
     >*{
       margin-bottom: 2rem;
     }
