@@ -1,2 +1,7 @@
-document.querySelector("#searchLabel").innerHTML = "<%= @search_str %>"
+<% if @recipes.nil? %>
+  document.querySelector(".search-label h1").innerHTML = "No result found for <span id='searchLabel'><%= @search_str %></span>"
+<% else %>
+  document.querySelector("#searchLabel").innerHTML = "<%= @search_str %>"
+<% end %>
+
 document.querySelector(".search-result-container").innerHTML = "<%= j render partial: "searches/result", locals: { recipes: @recipes } %>"
