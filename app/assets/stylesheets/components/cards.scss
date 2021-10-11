@@ -7,10 +7,17 @@
   @include flex-col();
   >.card-img{
     @include flex-row-center();
+    position: relative;
+    height: 15rem;
+    width: 21rem;
+  overflow: hidden;
     >img{
-      border-radius: 1rem;
-      height: 15rem;
-      width: 21rem;
+      height: 250px;
+      width: 250px;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
     }
   }
 
