@@ -10,7 +10,7 @@
     position: relative;
     height: 15rem;
     width: 21rem;
-  overflow: hidden;
+    overflow: hidden;
     >img{
       height: 250px;
       width: 250px;
@@ -27,5 +27,109 @@
     margin-top: 1rem;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  @media only screen and (max-width: 1305px) {
+    height: 23rem;
+    width: 33rem;
+    >.card-img{
+      height: 15rem;
+      width: 29rem;
+      overflow: hidden;
+      >img{
+        height: 300px;
+        width: 300px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1270px) {
+    height: 33rem;
+    width: 43rem;
+
+    >.card-img{
+      height: 25rem;
+      width: 39rem;
+      overflow: hidden;
+      >img{
+        height: 400px;
+        width: 400px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    height: 33rem;
+    width: 38vw;
+
+    >.card-img{
+      height: 25rem;
+      width: 35vw;
+      overflow: hidden;
+      >img{
+        height: 400px;
+        width: 400px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 990px) {
+    height: 33rem;
+    width: 33vw;
+
+    >.card-img{
+      height: 25rem;
+      width: 29vw;
+      overflow: hidden;
+      >img{
+        height: 400px;
+        width: 400px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 822px) {
+    height: 33rem;
+    width: 36vw;
+
+    >.card-img{
+      height: 25rem;
+      width: 32vw;
+      overflow: hidden;
+      >img{
+        height: 400px;
+        width: 400px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    height: 33rem;
+    width: 90%;
+
+    >.card-img{
+      height: 25rem;
+      width: 98%;
+      overflow: hidden;
+      >img{
+        height: 450px;
+        width: 450px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    height: 25rem;
+    width: 90%;
+
+    >.card-img{
+      height: 17rem;
+      width: 98%;
+      overflow: hidden;
+      >img{
+        height: 300px;
+        width: 300px;
+      }
+    }
   }
 }
