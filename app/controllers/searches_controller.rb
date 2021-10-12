@@ -18,4 +18,9 @@ class SearchesController < ApplicationController
       end
     end
   end
+
+  def show
+    @response = Mealdb::Client.search_by_meal(params[:id]).body
+    @recipe = (JSON.parse(@response))['meals']
+  end
 end

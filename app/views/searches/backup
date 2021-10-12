@@ -1,0 +1,21 @@
+<% if @recipes.nil? %>
+  document.querySelector(".search-label h1").innerHTML = "No result found for \"<span id='searchLabel'><%= @search_str %></span>\" "
+<% else %>
+  document.querySelector(".search-label h1").innerHTML = "Results for \"<span id='searchLabel'><%= @search_str %></span>\" "
+<% end %>
+
+document.querySelector(".search-result-container").innerHTML = "<%= j render partial: "searches/result", locals: { recipes: @recipes.paginate(page: params[:page], per_page: 20) } %>"
+
+
+
+
+<% recipes&.each do |recipe| %>
+  <div class="card-container">
+    <div class="card-img">
+      <img src=<%= recipe["strMealThumb"] %> />
+    </div>
+    <div class="card-label">
+      <%= recipe["strMeal"] %>
+    </div>
+  </div>
+<% end %>

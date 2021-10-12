@@ -1,0 +1,112 @@
+.container-search-show{
+
+  >.container{
+    >*{
+      margin-bottom: 5rem;
+    }
+    >.title{
+      font-size: $font-size-10;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 700;
+      color: $color-blue-4;
+      margin-bottom: 5vw;
+    }
+
+    >.ingredients-thumbnail{
+      // border: 1px solid black;
+      @include flex-row();
+      justify-content: space-between;
+      align-items: flex-start;
+
+      >.ingredients{
+        padding-top: 3rem;
+        >.label{
+          font-size: $font-size-6;
+          font-weight: 500;
+          color: $color-blue-4;
+          margin-bottom: 1.5rem;
+        }
+
+        >.body{
+          >.item{
+            @include flex-row();
+            margin-bottom: .7rem;
+            >.icon{
+              background-image: image-url("check-circle.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+
+              height: 15px;
+              width: 15px;
+
+              margin-right: 1rem;
+              
+            }
+            >.name{
+              // font-size: $font-size-1;
+            }
+          }
+        }
+      }
+
+      >.thumbnail{
+        height: 40rem;
+        width: 40rem;
+        position: relative;
+        
+        >img{
+          border-radius: 2rem;
+          height: 100%;
+          width: 100%;
+        }
+
+        &::after{
+          z-index: -1;
+          content: '';
+          position: absolute;
+          border-radius: 2rem;
+          top: 0;
+          left: 0;
+          height: 40rem;
+          width: 40rem;
+          transform: rotate(-10deg);
+          border: 2px solid $color-red-4;
+        }
+      }
+    }
+    
+    >.instructions{
+
+      >.label{
+        font-size: $font-size-6;
+        font-weight: 500;
+        color: $color-blue-4;
+        margin-bottom: 1.5rem;
+      }
+
+      >.body{
+
+      }
+    }
+
+    >.related-video{
+      
+      >.label{
+        font-size: $font-size-6;
+        font-weight: 500;
+        color: $color-blue-4;
+        margin-bottom: 1.5rem;
+      }
+
+      .video-content{
+        width: 100%;
+        @include flex-col-center();
+        >iframe{
+          height: 35vw;
+          width: 80%;
+          max-height: 50rem;
+        }
+      }
+    }
+  }
+}
