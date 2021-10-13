@@ -7,7 +7,7 @@
     <div class="ingredients-thumbnail">
       <div class="ingredients">
         <div class="label">
-          Ingredients
+          <span class="highlight-red">Ingredients</span>
         </div>
 
         <div class="body">
@@ -24,7 +24,7 @@
 
     <div class="instructions">
       <div class="label">
-        Instructions
+        <span class="highlight-red">Instructions</span>
       </div>
 
       <div class="body">
@@ -37,7 +37,7 @@
     <div class="related-video">
 
       <div class="label">
-        Related Video
+        <span class="highlight-red">Related Video</span>
       </div>
       <div class="video-content">
         <%= content_tag(:iframe, '', src: @recipe[:youtube_url], frameborder: 0) %>
