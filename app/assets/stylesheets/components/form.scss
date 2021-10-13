@@ -54,7 +54,9 @@ form{
     &::placeholder{
       opacity: .5;
     }
-
+    &.landing{
+      max-width: 60rem;
+    }
     &#search{
       padding-left: 4rem;
       border-radius: 10rem;

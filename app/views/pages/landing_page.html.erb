@@ -1,99 +1,99 @@
-<section class="container-landing">
-  <section class="label">
-    <div class="header">
-      Finding <span class="red">recipes</span>
-      with <span class="red">ease</span>
-    </div>
-    <div class="subheader">
-      Having a difficult time choosing what to cook? We got you! Search recipes through our app based on your ingredients on-hand.
-    </div>
-    <div class="call-to-action">
-      <%= link_to 'Create account now', new_user_registration_path, class: "btn-red" %>
-    </div>
-  </section>
-  <section class="image">
-    <%=image_tag("header-img.png")%>
-  </section>
-</section>
-
-<section class="container-landing-body">
-  <section class="label">
-    <div class="header">
-      Helping you find what to <span class="highlight-red">cook</span>
-    </div>
-    <div class="subheader">
-      We have tons of recipes available at your disposal
-    </div>
-  </section>
-
-  <section class="gallery">
-    <div class="gallery-card">
-      <div class="food-img img-1">
-     
-      </div>
-      <div class="food-name">
-        Walnut Roll Gužvara
-      </div>
-    </div>
-
-    <div class="gallery-card">
-      <div class="food-img img-2">
-      </div>
-      <div class="food-name">
-        Chivito Uruguayo
-      </div>
-    </div>
-
-    <div class="gallery-card">
-      <div class="food-img img-3">
-      </div>
-      <div class="food-name">
-        Croatian Lamb Peka
-      </div>
-    </div>
-  </section>
-</section>
-
-<section class="container-landing-about">
-  <div class="container-section">
-    <div class="image img-1">
-    </div>
-    <div class="label">
+<section class="container">
+  <section class="container-landing">
+    <section class="label">
       <div class="header">
-        The <span class="highlight-red">perfect</span> app for you
+        Finding <span class="red">recipes</span>
+        with <span class="red">ease</span>
       </div>
       <div class="subheader">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        Having a difficult time choosing what to cook? We got you! Search recipes through our app based on your ingredients on-hand.
       </div>
-    </div>
-  </div>
+      <div class="call-to-action">
+        <%= link_to 'Create account now', new_user_registration_path, class: "btn-red" %>
+      </div>
+    </section>
+    <section class="image">
+      <%=image_tag("header-img2.png")%>
+    </section>
+  </section>
 
-  <div class="container-section">
-    <div class="label">
+  <section class="container-landing-body">
+    <section class="label">
       <div class="header">
-        The <span class="highlight-red">perfect</span> app for you
+        Helping you find what to <span class="highlight-red">cook</span>
       </div>
       <div class="subheader">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        We have tons of recipes available at your disposal
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="gallery-card">
+        <div class="food-img img-1">
+      
+        </div>
+        <div class="food-name">
+          Walnut Roll Gužvara
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="food-img img-2">
+        </div>
+        <div class="food-name">
+          Chivito Uruguayo
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="food-img img-3">
+        </div>
+        <div class="food-name">
+          Croatian Lamb Peka
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="container-landing-about">
+    <div class="container-section">
+      <div class="image img-1">
+      </div>
+      <div class="label">
+        <div class="header">
+          The <span class="highlight-red">perfect</span> app for you
+        </div>
+        <div class="subheader">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        </div>
       </div>
     </div>
-    <div class="image img-2">
-    </div>
-  </div>
-</section>
 
-<section class="container-landing-newsletter">
-  <div class="label">
-  Subscribe to our Newsletter
-  </div>
-  <div class="newsletter-form">
-    <%= form_for :users do |f| %>
-    <div class="field align-row">
-      <%= f.text_field :column_name %>
-      <%= f.submit "Subscribe", class: "btn-red wrap square" %>
+    <div class="container-section">
+      <div class="label">
+        <div class="header">
+          The <span class="highlight-red">perfect</span> app for you
+        </div>
+        <div class="subheader">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        </div>
+      </div>
+      <div class="image img-2">
+      </div>
     </div>
-    <% end %>
-  </div>
-  
-  
+  </section>
+
+  <section class="container-landing-newsletter">
+    <div class="label">
+    Subscribe to our Newsletter
+    </div>
+    <div class="newsletter-form">
+      <%= form_for :users do |f| %>
+      <div class="field align-row">
+        <%= f.text_field :column_name, class: "landing" %>
+        <%= f.submit "Subscribe", class: "btn-red wrap square" %>
+      </div>
+      <% end %>
+    </div>
+  </section>
 </section>
