@@ -1,3 +1,14 @@
-.nav-link{
+.nav-link,
+.navbar-nav >.nav-link{
+  color: $color-blue-4 !important;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
+}
+
+.navbar-nav{
+  margin-left: 4vw;
+
+  >*{
+    margin-left: 2vw;
+  }
 }
