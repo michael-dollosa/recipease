@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
     @response = Mealdb::Client.search_by_meal(params[:id]).body
     @recipe_hash = (JSON.parse(@response))['meals'][0]
 
-    #return
+    # return
     @recipe = {
       name: @recipe_hash['strMeal'],
       thumbnail: @recipe_hash['strMealThumb'],
@@ -31,8 +31,6 @@ class SearchesController < ApplicationController
       youtube_url: parse_youtube_url(@recipe_hash['strYoutube']),
       instructions: @recipe_hash['strInstructions']
     }
-
-    p "#{@recipe}"
   end
 
   private
@@ -41,14 +39,14 @@ class SearchesController < ApplicationController
     arr = []
     (0...recipe_hash.length).each do |count|
       break if @recipe_hash["strMeasure#{count + 1}"].strip.empty? || @recipe_hash["strMeasure#{count + 1}"].nil?
-      p "#{@recipe_hash["strMeasure#{count + 1}"]}"
+
       arr << "#{@recipe_hash["strMeasure#{count + 1}"]} #{@recipe_hash["strIngredient#{count + 1}"]}"
     end
     arr
   end
 
   def parse_youtube_url(url)
-    id = url.split("=").last
+    id = url.split('=').last
     "https://www.youtube.com/embed/#{id}"
   end
 end
