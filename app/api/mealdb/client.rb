@@ -13,7 +13,12 @@ module Mealdb
     end
 
     def self.search_by_meal(meal_id)
-      @client.connection.get("lookup.php?i=#{meal_id}")
+      @response = @client.connection.get("lookup.php?i=#{meal_id}")
+      if (JSON.parse(@response.body))['meals'].present?
+        { status: 'success', code: 200, message: 'Meal Found', body: @response }
+      else
+        { status: 'error', code: 404, message: 'No Meal Found', body: nil }
+      end
     end
 
     def self.test

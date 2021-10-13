@@ -20,17 +20,21 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @response = Mealdb::Client.search_by_meal(params[:id]).body
-    @recipe_hash = (JSON.parse(@response))['meals'][0]
+    @response = Mealdb::Client.search_by_meal(params[:id])
+    if @response[:code] == 404
+      redirect_to searches_path
+    else
+      @recipe_hash = (JSON.parse(@response[:body].body))['meals'][0]
 
-    # return
-    @recipe = {
-      name: @recipe_hash['strMeal'],
-      thumbnail: @recipe_hash['strMealThumb'],
-      ingredients: parse_ingredients(@recipe_hash),
-      youtube_url: parse_youtube_url(@recipe_hash['strYoutube']),
-      instructions: @recipe_hash['strInstructions']
-    }
+      # return
+      @recipe = {
+        name: @recipe_hash['strMeal'],
+        thumbnail: @recipe_hash['strMealThumb'],
+        ingredients: parse_ingredients(@recipe_hash),
+        youtube_url: parse_youtube_url(@recipe_hash['strYoutube']),
+        instructions: @recipe_hash['strInstructions']
+      }
+    end
   end
 
   private
