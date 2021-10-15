@@ -65,9 +65,9 @@ class SearchesController < ApplicationController
 
   private
 
-  def parse_ingredients_show(recipe_hash)
+  def parse_ingredients_show(_recipe_hash)
     arr = []
-    (0...recipe_hash.length).each do |count|
+    (1...20).each do |count|
       break if @recipe_hash["strMeasure#{count + 1}"].strip.empty? || @recipe_hash["strMeasure#{count + 1}"].nil?
 
       arr << "#{@recipe_hash["strMeasure#{count + 1}"]} #{@recipe_hash["strIngredient#{count + 1}"]}"
@@ -75,9 +75,9 @@ class SearchesController < ApplicationController
     arr
   end
 
-  def parse_ingredients_create(recipe_hash)
+  def parse_ingredients_create(_recipe_hash)
     ingredients_hash = {}
-    (0...recipe_hash.length).each do |count|
+    (1...20).each do |count|
       break if @recipe_hash["strMeasure#{count + 1}"].strip.empty? || @recipe_hash["strMeasure#{count + 1}"].nil?
 
       ingredients_hash[@recipe_hash["strIngredient#{count + 1}"]] = @recipe_hash["strMeasure#{count + 1}"]
