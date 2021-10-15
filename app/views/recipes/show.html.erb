@@ -1,7 +1,7 @@
 <section class="container-search-show">
   <section class="container">
     <div class="title">
-      <%= @recipe[:name] %>
+      <%= @recipe.name %>
     </div>
   
     <div class="ingredients-thumbnail">
@@ -12,13 +12,13 @@
 
         <div class="body">
           <%# ingredient item %>
-          <%= render partial: "searches/ingredient", collection: @recipe[:ingredients] %>
+          <%= render partial: "recipes/ingredient", collection: @recipe.ingredients %>
           <%# ingredient item end %>
         </div>  
       </div>
 
       <div class="thumbnail">
-        <img src="<%= @recipe[:thumbnail] %>" />
+        <img src="<%= @recipe.img_url %>" />
       </div>
     </div>
 
@@ -29,7 +29,7 @@
 
       <div class="body">
         <p>
-          <%= @recipe[:instructions] %>
+          <%= @recipe.instructions %>
         </p>
       </div>
     </div>
@@ -40,15 +40,15 @@
         <span class="highlight-red">Related Video</span>
       </div>
       <div class="video-content">
-        <%= content_tag(:iframe, '', src: @recipe[:youtube_url], frameborder: 0) %>
+        <%= content_tag(:iframe, '', src: @recipe.video_url, frameborder: 0) %>
       </div>
       
     </div>
 
 
-    <div class="action-btn">
+    <%# <div class="action-btn">
       <%= link_to "Add to Collection", search_copy_path(params[:id]), method: :post, class: "btn-blue" %>
-    </div>
+    <%# </div> %>
   </section>
 
 </section>

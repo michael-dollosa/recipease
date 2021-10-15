@@ -30,16 +30,42 @@ class SearchesController < ApplicationController
       @recipe = {
         name: @recipe_hash['strMeal'],
         thumbnail: @recipe_hash['strMealThumb'],
-        ingredients: parse_ingredients(@recipe_hash),
+        ingredients: parse_ingredients_show(@recipe_hash),
         youtube_url: parse_youtube_url(@recipe_hash['strYoutube']),
         instructions: @recipe_hash['strInstructions']
       }
     end
   end
 
+  def copy
+    @response = Mealdb::Client.search_by_meal(params[:id])
+    @recipe_hash = (JSON.parse(@response[:body].body)['meals'][0])
+    @recipe = Recipe.new
+    @recipe.user_id = current_user.id
+    @recipe.name = @recipe_hash['strMeal']
+    @recipe.slug = @recipe_hash['strMeal'].parameterize
+    @recipe.img_url = @recipe_hash['strMealThumb']
+    @recipe.video_url = parse_youtube_url(@recipe_hash['strYoutube'])
+    @recipe.instructions = @recipe_hash['strInstructions']
+    @recipe.save
+    parse_ingredients_create(@recipe_hash).each do |name, value|
+      @ingredients = @recipe.ingredients.create(
+        recipe_id: @recipe.id,
+        name: name,
+        measurement: value
+      )
+    end
+
+    if @recipe.save
+      redirect_to root_path
+    else
+      redirect_to searches_path
+    end
+  end
+
   private
 
-  def parse_ingredients(recipe_hash)
+  def parse_ingredients_show(recipe_hash)
     arr = []
     (0...recipe_hash.length).each do |count|
       break if @recipe_hash["strMeasure#{count + 1}"].strip.empty? || @recipe_hash["strMeasure#{count + 1}"].nil?
@@ -47,6 +73,16 @@ class SearchesController < ApplicationController
       arr << "#{@recipe_hash["strMeasure#{count + 1}"]} #{@recipe_hash["strIngredient#{count + 1}"]}"
     end
     arr
+  end
+
+  def parse_ingredients_create(recipe_hash)
+    ingredients_hash = {}
+    (0...recipe_hash.length).each do |count|
+      break if @recipe_hash["strMeasure#{count + 1}"].strip.empty? || @recipe_hash["strMeasure#{count + 1}"].nil?
+
+      ingredients_hash[@recipe_hash["strIngredient#{count + 1}"]] = @recipe_hash["strMeasure#{count + 1}"]
+    end
+    ingredients_hash
   end
 
   def parse_youtube_url(url)

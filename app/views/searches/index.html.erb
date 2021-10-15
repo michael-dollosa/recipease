@@ -16,16 +16,7 @@
     
     <section class="search-result">
       <section class="search-result-container">
-      <% @recipes&.each do |recipe| %>
-        <div class="card-container">
-          <div class="card-img">
-            <img src=<%= recipe["strMealThumb"] %> />
-          </div>
-          <div class="card-label">
-            <%= recipe["strMeal"] %>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: "searches/result", locals: { recipes: @recipes } %>
       </section>
     </section>
   </section>

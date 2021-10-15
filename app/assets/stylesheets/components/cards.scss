@@ -134,3 +134,67 @@
     }
   }
 }
+
+
+.card-container-recipe{
+  background-color: white;
+  border: 1px solid #E2E2E2;
+  height: 35rem;
+  max-width: 27rem;
+  flex: 1 0 auto;
+  @include flex-col();
+  transition: .1s ease;
+  &:hover{
+    transition: .1s ease;
+    // box-shadow: 0px 2px 7px 2px rgba(236, 12, 31, 0.582);
+    border: 1px solid $color-red-3;
+    box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.171);
+    
+  }
+
+  @media only screen and (max-width: 1008px) {
+    height: 35rem;
+    max-width: 27rem;
+  }
+
+  @media only screen and (max-width: 760px) {
+    height: 45rem;
+    max-width: 36rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    height: 35rem;
+    max-width: 24rem;
+  }
+  >.card-img{
+    height: 80%;
+    width: 100%;
+    >img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  >.card-label{
+    width: 100%;
+    margin-top: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 1.5rem;
+
+    font-family: 'Noto Sans', sans-serif;
+    font-size: $font-size-1;
+    font-weight: 200;
+    color: $color-black-3;
+  }
+
+  >.card-sublabel{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size-0;
+    font-weight: 100;
+  }
+}

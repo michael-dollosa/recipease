@@ -1,0 +1,31 @@
+<section class="container-recipes">
+  <section class="container">
+    <section class="search-label">
+      <h1>My Recipe <span class="highlight-red">Collection</span></h1>
+    </section>
+
+    <section class="pagination">
+      
+    </section>
+    
+    <section class="search-result">
+      <section class="search-result-container">
+      <% @recipes&.each do |recipe| %>
+      <%= link_to recipe_path(recipe.id) do %>
+          <div class="card-container-recipe">
+          <div class="card-img">
+            <img src=<%= recipe.img_url %> />
+          </div>
+          <div class="card-label">
+            <%= recipe.name %>
+          </div>
+          <div class="card-sublabel">
+            <%= recipe.created_at %>
+          </div>
+        </div>
+      <% end %>
+      <% end %>
+      </section>
+    </section>
+  </section>
+</section>

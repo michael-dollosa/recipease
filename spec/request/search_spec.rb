@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Search Function', type: :request do
+  before do
+    sign_in create(:user)
+  end
+
   it 'successfully route to search index' do
     get '/search'
     expect(response).to render_template(:index)
