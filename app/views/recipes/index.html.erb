@@ -20,7 +20,7 @@
             <%= recipe.name %>
           </div>
           <div class="card-sublabel">
-            <%= recipe.created_at %>
+            Last Update: <%= recipe.created_at.strftime("%B %d, %Y") %>
           </div>
         </div>
       <% end %>

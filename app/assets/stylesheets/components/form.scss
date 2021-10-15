@@ -96,8 +96,11 @@ form{
 .devise-shared-link{
   margin-top: 1.3rem;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
-  color: $color-black-4;
+  >a{
+    font-family: 'Roboto', sans-serif;
+    color: $color-black-3;
+    font-size: $font-size-0;
+  }
 }
 
 .devise-forgot-password{
