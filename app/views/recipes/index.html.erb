@@ -7,6 +7,10 @@
     <section class="pagination">
       
     </section>
+
+    <% if @recipes.empty? %>
+      <h1>No recipes yet? Try to <span class="search"><%= link_to 'search', searches_path %></span> for recipes and copy them right away!</h1>
+    <% end %>
     
     <section class="search-result">
       <section class="search-result-container">

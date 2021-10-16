@@ -11,7 +11,7 @@
       color: $color-blue-4;
       margin-bottom: 5vw;
 
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 400px) {
         font-size: $font-size-6;
       }
     }
@@ -32,6 +32,9 @@
           font-weight: 500;
           color: $color-blue-4;
           margin-bottom: 1.5rem;
+          @media only screen and (max-width: 400px) {
+            font-size: $font-size-5;
+          }
         }
 
         >.body{
@@ -50,7 +53,7 @@
               
             }
             >.name{
-              // font-size: $font-size-1;
+              
             }
           }
         }
@@ -100,6 +103,9 @@
         font-weight: 500;
         color: $color-blue-4;
         margin-bottom: 1.5rem;
+        @media only screen and (max-width: 400px) {
+          font-size: $font-size-5;
+        }
       }
 
       >.body{
@@ -114,6 +120,9 @@
         font-weight: 500;
         color: $color-blue-4;
         margin-bottom: 1.5rem;
+        @media only screen and (max-width: 400px) {
+          font-size: $font-size-5;
+        }
       }
 
       .video-content{
