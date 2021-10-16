@@ -57,9 +57,9 @@ class SearchesController < ApplicationController
     end
 
     if @recipe.save
-      redirect_to root_path
+      redirect_to root_path, success: 'Recipe added to your collection.'
     else
-      redirect_to searches_path
+      redirect_to searches_path, danger: 'Cannot copy recipe. Try again.'
     end
   end
 

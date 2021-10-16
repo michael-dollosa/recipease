@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <section class="flash-message-container">
+      <%= render 'layouts/flash_messages' %>
+    </section>
     <% unless request.fullpath.start_with?("/users/sign_") %>
     <nav>
       <%= render 'layouts/navigation'%>
