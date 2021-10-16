@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
   def show
     @response = Mealdb::Client.search_by_meal(params[:id])
     if @response[:code] == 404
-      redirect_to searches_path
+      redirect_to searches_path, danger: 'Kindy choose among the results.'
     else
       @recipe_hash = (JSON.parse(@response[:body].body))['meals'][0]
 
