@@ -87,10 +87,21 @@ form{
     }
   }
 
-  .actions > input[type="submit"]{
-    width: 100%;
-    border-style: none;
-    color: white;
+  >.actions{
+    &.recipe{
+      @include flex-col-center();
+      justify-content: center;
+      >input[type="submit"]{
+        max-width: 20rem;
+        border-style: none;
+        color: white;    
+      }
+    }
+    > input[type="submit"]{
+      width: 100%;
+      border-style: none;
+      color: white;    
+    }
   }
 }
 

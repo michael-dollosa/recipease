@@ -23,28 +23,30 @@
         </div>
       </section>
     </section>
-  
+    
     <section class="recipe-ingredients">
-      <div class="label">
+      <div class="label recipe-ingredient">
         Ingredients
+         <div class="add-btn" id="addBtn"></div>
       </div>
-
-      <div class="ingredient">
-        <div class="name">
-          <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :ingredient_name1, autofocus: true %>
+     
+      <div class="ingredient-container">
+        <div class="ingredient">
+          <div class="name">
+            <div class="field">
+              <%= f.label :name %><br />
+              <%= f.text_field :ingredient_name1, autofocus: true %>
+            </div>
+          </div>
+          <div class="measurement">
+            <div class="field">
+              <%= f.label :measurement %><br />
+              <%= f.text_field :ingredient_measurement1, autofocus: true %>
+            </div>
           </div>
         </div>
-        <div class="measurement">
-          <div class="field">
-            <%= f.label :measurement %><br />
-            <%= f.text_field :ingredient_measurement1, autofocus: true %>
-          </div>
-        </div>
-
-        <div class="add-btn" id="add-btn"></div>
       </div>
+      
     </section>
 
     <section class="recipe-instructions">
@@ -58,6 +60,10 @@
         </div>
       </div>
     </section>
+
+    <div class="actions recipe">
+      <%= f.submit "Create Recipe", class: "btn-red" %>
+    </div>
     <% end %>
   </section>
 </section>
