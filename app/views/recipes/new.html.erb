@@ -1,0 +1,63 @@
+<section class="container-recipe-new">
+  <section class="container">
+    <%= form_for root_path do |f| %>
+    <section class="recipe-details">
+      <div class="label">
+        Recipe Details
+      </div>
+
+      <section class="information">
+        <div class="details">
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %>
+            <%= f.label :image_url %><br />
+            <%= f.text_field :img_url, autofocus: true %>
+            <%= f.label :video_url %><br />
+            <%= f.text_field :video_url, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="image-preview">
+          Image Preview
+        </div>
+      </section>
+    </section>
+  
+    <section class="recipe-ingredients">
+      <div class="label">
+        Ingredients
+      </div>
+
+      <div class="ingredient">
+        <div class="name">
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :ingredient_name1, autofocus: true %>
+          </div>
+        </div>
+        <div class="measurement">
+          <div class="field">
+            <%= f.label :measurement %><br />
+            <%= f.text_field :ingredient_measurement1, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="add-btn" id="add-btn"></div>
+      </div>
+    </section>
+
+    <section class="recipe-instructions">
+      <div class="label">
+        Instructions
+      </div>
+
+      <div class="details">
+        <div class="field">
+          <%= f.text_area :instructions %>
+        </div>
+      </div>
+    </section>
+    <% end %>
+  </section>
+</section>

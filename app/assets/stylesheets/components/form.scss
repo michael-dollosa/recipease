@@ -41,8 +41,9 @@ form{
     margin-bottom: 4rem;
   }
 
-  >.field >input,
-  >.field >.field_with_errors >input{
+  .field >input,
+  .field >textarea,
+  .field >.field_with_errors >input{
     margin-bottom: 1.3rem;
     outline: none;
     font-family: 'Roboto', sans-serif;
@@ -64,17 +65,17 @@ form{
     }
   }
 
-  >.field >label,
-  >.field >em,
-  >.field >.field_with_errors >label,
-  >.field >.field_with_errors >em{
+  .field >label,
+  .field >em,
+  .field >.field_with_errors >label,
+  .field >.field_with_errors >em{
     font-family: 'Roboto', sans-serif;
     font-size: $font-size-0;
     font-weight: 700;
     color: $color-black-1;
   }
 
-  >.field > input[type="submit"]{
+  .field > input[type="submit"]{
     width: 100%;
     border-style: none;
     color: white;
@@ -86,7 +87,7 @@ form{
     }
   }
 
-  >.actions > input[type="submit"]{
+  .actions > input[type="submit"]{
     width: 100%;
     border-style: none;
     color: white;
