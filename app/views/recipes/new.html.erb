@@ -1,6 +1,6 @@
 <section class="container-recipe-new">
   <section class="container">
-    <%= form_for root_path do |f| %>
+    <%= form_with model: @recipe do |f| %>
     <section class="recipe-details">
       <div class="label">
         Recipe Details
@@ -10,16 +10,16 @@
         <div class="details">
           <div class="field">
             <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true %>
+            <%= f.text_field :name, autofocus: true, required: true %>
             <%= f.label :image_url %><br />
-            <%= f.text_field :img_url, autofocus: true %>
+            <%= f.text_field :img_url, autofocus: true, required: true %>
             <%= f.label :video_url %><br />
-            <%= f.text_field :video_url, autofocus: true %>
+            <%= f.text_field :video_url, autofocus: true, required: true %>
           </div>
         </div>
 
         <div class="image-preview">
-          Image Preview
+          <img id="imagePreview" src="">
         </div>
       </section>
     </section>
@@ -35,13 +35,13 @@
           <div class="name">
             <div class="field">
               <%= f.label :name %><br />
-              <%= f.text_field :ingredient_name1, autofocus: true %>
+              <%= f.text_field "ingredient[name1]", autofocus: true, required: true %>
             </div>
           </div>
           <div class="measurement">
             <div class="field">
               <%= f.label :measurement %><br />
-              <%= f.text_field :ingredient_measurement1, autofocus: true %>
+              <%= f.text_field "ingredient[measurement1]", autofocus: true, required: true %>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
 
       <div class="details">
         <div class="field">
-          <%= f.text_area :instructions %>
+          <%= f.text_area :instructions, required: true %>
         </div>
       </div>
     </section>
