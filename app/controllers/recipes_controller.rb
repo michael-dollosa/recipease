@@ -36,6 +36,17 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+
+    if @recipe.destroy
+      redirect_to root_path, success: 'Recipe deleted successfully.'
+    else
+      redirect_back fallback_location: root_path, danger: 'Failed to delete recipe.'
+    end
+  end
+
   private
 
   def recipes_params

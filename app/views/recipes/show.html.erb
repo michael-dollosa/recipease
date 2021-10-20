@@ -46,9 +46,9 @@
     </div>
 
 
-    <%# <div class="action-btn">
-      <%= link_to "Add to Collection", search_copy_path(params[:id]), method: :post, class: "btn-blue" %>
-    <%# </div> %>
+    <div class="action-btn">
+      <%= link_to "Delete recipe", recipe_path(@recipe.id), method: :delete, class: "btn-red" %>
+    </div>
   </section>
 
 </section>

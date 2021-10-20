@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   authenticated :user do 
     resources :searches, only: [:index, :create, :show], path: :search
     post '/search/copy/:id', to: 'searches#copy', as: 'search_copy'
-    resources :recipes, only: [:index, :show, :new, :create]
+    resources :recipes, only: [:index, :show, :new, :create, :destroy]
     root "recipes#index"
   end
   root to: "pages#landing_page", as: :unauthenticated_root
