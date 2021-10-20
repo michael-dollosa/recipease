@@ -1,6 +1,7 @@
+<%= javascript_pack_tag 'recipes' %>
 <section class="container-recipe-new">
   <section class="container">
-    <%= form_with model: @recipe do |f| %>
+    <%= form_with model: @recipe, local: true do |f| %>
     <section class="recipe-details">
       <div class="label">
         Recipe Details
