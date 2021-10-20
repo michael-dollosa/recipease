@@ -11,6 +11,36 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    modified_recipe = params[:recipe]
+    @recipe = Recipe.find(params[:id])
+    @recipe.name = modified_recipe[:name]
+    @recipe.slug = modified_recipe[:name].parameterize
+    @recipe.img_url = modified_recipe[:img_url]
+    @recipe.video_url = parse_youtube_url(modified_recipe[:video_url])
+    @recipe.instructions = modified_recipe[:instructions]
+    @recipe.save
+
+    if @recipe.save
+      # delete all ingredients to create new via edit
+      @recipe.ingredients.delete_all
+      parse_ingredient_data(modified_recipe[:ingredient]).each do |name, measurement|
+        @recipe.ingredients.create(
+          recipe_id: @recipe.id,
+          name: name,
+          measurement: measurement
+        )
+      end
+      redirect_to recipe_path(@recipe), success: 'Updated recipe successfully.'
+    else
+      redirect_back fallback_location: root_path, danger: 'Failed updating recipe. Try again.'
+    end
+  end
+
   def create
     new_recipe = params[:recipe]
     @recipe = current_user.recipes.new
@@ -18,7 +48,6 @@ class RecipesController < ApplicationController
     @recipe.slug = new_recipe[:name].parameterize
     @recipe.img_url = new_recipe[:img_url]
     @recipe.video_url = parse_youtube_url(new_recipe[:video_url])
-    puts "updated video url: #{@recipe.video_url}"
     @recipe.instructions = new_recipe[:instructions]
     @recipe.save
 
@@ -63,7 +92,6 @@ class RecipesController < ApplicationController
       new_hash[hash["name#{count + 1}"]] = hash["measurement#{count + 1}"]
       count += 1
     end
-    puts "ingredient hash: #{new_hash}"
     new_hash
   end
 end

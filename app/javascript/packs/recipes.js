@@ -1,10 +1,11 @@
 //adding ingredients
 $(document).ready(()=>{
   //start count of additional item will 2
-  let ingredientCount = 2
+  let ingredientCount = document.querySelector(".ingredient-container").childElementCount
   let addBtn = document.querySelector("#addBtn")
   
   addBtn.addEventListener('click', function(){
+    ingredientCount++
     let newIngredient = document.createElement("div")
     newIngredient.classList.add("ingredient")
     newIngredient.innerHTML =
@@ -26,7 +27,6 @@ $(document).ready(()=>{
     `
 
     document.querySelector(".ingredient-container").append(newIngredient)
-    ingredientCount++
     console.log(`counter ${ingredientCount}`)
   })
 })

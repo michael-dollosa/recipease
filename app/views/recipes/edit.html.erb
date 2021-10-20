@@ -1,0 +1,73 @@
+<%= javascript_pack_tag 'recipes' %>
+<section class="container-recipe-new">
+  <section class="container">
+    <%= form_with model: @recipe, method: "patch", local: true do |f| %>
+    <section class="recipe-details">
+      <div class="label">
+        Recipe Details
+      </div>
+
+      <section class="information">
+        <div class="details">
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, required: true, value: @recipe.name %>
+            <%= f.label :image_url %><br />
+            <%= f.text_field :img_url, autofocus: true, required: true, value: @recipe.img_url %>
+            <%= f.label :video_url %><br />
+            <%= f.text_field :video_url, autofocus: true, required: true, value: @recipe.video_url %>
+          </div>
+        </div>
+
+        <div class="image-preview">
+          <img id="imagePreview" src="<%= @recipe.img_url %>">
+        </div>
+      </section>
+    </section>
+    
+    <section class="recipe-ingredients">
+      <div class="label recipe-ingredient">
+        Ingredients
+         <div class="add-btn" id="addBtn"></div>
+      </div>
+     
+      <div class="ingredient-container">
+        <% @recipe.ingredients.each_with_index do |ingredient, index|%>
+        <div class="ingredient">
+          <div class="name">
+            <div class="field">
+              <%= f.label :name %><br />
+              <%= f.text_field "ingredient[name#{index+1}]", autofocus: true, required: true, value: ingredient.name %>
+            </div>
+          </div>
+          <div class="measurement">
+            <div class="field">
+              <%= f.label :measurement %><br />
+              <%= f.text_field "ingredient[measurement#{index+1}]", autofocus: true, required: true, value: ingredient.measurement %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        
+      </div>
+      
+    </section>
+
+    <section class="recipe-instructions">
+      <div class="label">
+        Instructions
+      </div>
+
+      <div class="details">
+        <div class="field">
+          <%= f.text_area :instructions, required: true, value: @recipe.instructions %>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions recipe">
+      <%= f.submit "Update Recipe", class: "btn-blue" %>
+    </div>
+    <% end %>
+  </section>
+</section>
