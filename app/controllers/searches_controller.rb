@@ -84,9 +84,4 @@ class SearchesController < ApplicationController
     end
     ingredients_hash
   end
-
-  def parse_youtube_url(url)
-    id = url.split('=').last
-    "https://www.youtube.com/embed/#{id}"
-  end
 end

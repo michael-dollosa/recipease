@@ -17,7 +17,8 @@ class RecipesController < ApplicationController
     @recipe.name = new_recipe[:name]
     @recipe.slug = new_recipe[:name].parameterize
     @recipe.img_url = new_recipe[:img_url]
-    @recipe.video_url = new_recipe[:video_url]
+    @recipe.video_url = parse_youtube_url(new_recipe[:video_url])
+    puts "updated video url: #{@recipe.video_url}"
     @recipe.instructions = new_recipe[:instructions]
     @recipe.save
 
