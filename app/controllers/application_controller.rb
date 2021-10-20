@@ -11,9 +11,10 @@ class ApplicationController < ActionController::Base
 
   def parse_youtube_url(url)
     url_regexp = %r{(?:.be/|/watch\?v=|/(?=p/))([\w/\-]+)}
+    # url_regexp = %r{youtube.com.*(?:\/|v=)(.+)}
     return url if url.match(url_regexp).nil?
 
-    id = url.split('=').last
+    id = url_regexp.match(url)[1]
     "https://www.youtube.com/embed/#{id}"
   end
 end

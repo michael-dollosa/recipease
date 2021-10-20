@@ -145,6 +145,13 @@
       width: 100%;
       @include flex-row();
       flex-direction: row-reverse;
+
+      &.centered{
+        @include flex-row-center();
+        >*{
+          margin: 0 1rem;
+        }
+      }
     }
   }
 }

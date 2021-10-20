@@ -46,7 +46,8 @@
     </div>
 
 
-    <div class="action-btn">
+    <div class="action-btn centered">
+      <%= link_to "Modify recipe", edit_recipe_path(@recipe.id), class: "btn-blue rounded" %>
       <%= link_to "Delete recipe", recipe_path(@recipe.id), method: :delete, class: "btn-red" %>
     </div>
   </section>
