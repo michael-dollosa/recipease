@@ -20,8 +20,7 @@ class RecipesController < ApplicationController
     @recipe.video_url = new_recipe[:video_url]
     @recipe.instructions = new_recipe[:instructions]
     @recipe.save
-    
-    
+
     if @recipe.save
       parse_ingredient_data(new_recipe[:ingredient]).each do |name, measurement|
         @recipe.ingredients.create(
@@ -45,11 +44,12 @@ class RecipesController < ApplicationController
   def parse_ingredient_data(hash)
     new_hash = {}
     count = 0
-    hash.each do |key,val|
-      next if key == "measurement#{count+1}"
-      break if hash["name#{count+1}"].nil? || hash["name#{count+1}"] == ""
-      new_hash[hash["name#{count+1}"]] = hash["measurement#{count+1}"]
-      count+=1
+    hash.each do |key, _val|
+      next if key == "measurement#{count + 1}"
+      break if hash["name#{count + 1}"].nil? || hash["name#{count + 1}"] == ''
+
+      new_hash[hash["name#{count + 1}"]] = hash["measurement#{count + 1}"]
+      count += 1
     end
     puts "ingredient hash: #{new_hash}"
     new_hash
