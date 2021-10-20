@@ -6,9 +6,9 @@ RSpec.describe Recipe, type: :model do
       user_id: user.id,
       name: 'Recipe Test',
       slug: 'Recipe-slug',
-      img_url: 'https://wwww.tes.com',
+      img_url: 'sample_image.jpg',
       instructions: 'recipe instructions',
-      video_url: 'https://wwww.tes.com'
+      video_url: 'https://www.youtube.com/watch?v=h5TvuBzMrlA'
     )
   end
 
