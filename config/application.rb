@@ -35,5 +35,6 @@ module RailsProject
     config.generators do |g|
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+    config.active_job.queue_adapter = :resque
   end
 end

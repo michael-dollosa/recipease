@@ -1,0 +1,8 @@
+send_newsletter_job:
+  every: 
+    - '1min'
+    - :first_in: '5s'
+  class: "SendNewsletterJob"
+  args:
+  queue: high
+  description: Runs the perform method in SendNewsletterJob

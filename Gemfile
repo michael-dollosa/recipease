@@ -19,6 +19,9 @@ gem 'hamlit-rails'
 gem 'faraday'
 gem 'faraday_middleware'
 
+gem 'resque'
+gem 'resque-scheduler'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
