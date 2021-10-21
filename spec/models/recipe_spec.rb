@@ -47,4 +47,9 @@ RSpec.describe Recipe, type: :model do
     recipe.video_url = nil
     expect(recipe).not_to be_valid
   end
+
+  it 'is not valid with invalid video_url ' do
+    recipe.video_url = 'www.your.com/v=12312312'
+    expect(recipe).not_to be_valid
+  end
 end
