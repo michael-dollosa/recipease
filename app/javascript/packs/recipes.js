@@ -14,14 +14,14 @@ $(document).ready(()=>{
         <div class="field">
           <label for="recipe_name">Name</label>
           <br>
-          <input autofocus="autofocus" type="text" name="recipe[ingredient[name${ingredientCount}]]" id="recipe_ingredient_name${ingredientCount}">
+          <input autofocus="autofocus" type="text" name="recipe[ingredient_hash[ingredient${ingredientCount}[name]]]" id="recipe_ingredient_name${ingredientCount}">
         </div>
       </div>
       <div class="measurement">
         <div class="field">
           <label for="recipe_measurement">Measurement</label>
           <br>
-          <input autofocus="autofocus" type="text" name="recipe[ingredient[measurement${ingredientCount}]]" id="recipe_ingredient_measurement${ingredientCount}">
+          <input autofocus="autofocus" type="text" name="recipe[ingredient_hash[ingredient${ingredientCount}[measurement]]]" id="recipe_ingredient_measurement${ingredientCount}">
         </div>
       </div>
     `

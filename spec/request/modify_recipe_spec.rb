@@ -9,14 +9,14 @@ RSpec.describe 'Modify Recipe', type: :request do
     get '/recipes/new'
 
     # no params data since api will fetch all data via id
-    new_recipe = { 'recipe' => { 'name' => 'Sample Recipe', 'img_url' => 'https://www.themealdb.com/images/media/meals/n7qnkb1630444129.jpg', 'video_url' => 'https://www.youtube.com/watch?v=v2oCIDFP4oU&list=RDv2oCIDFP4oU&start_radio=1', 'ingredient' => { 'name1' => 'Sample Ingredient 1', 'measurement1' => 'Sample Measurement 1', 'name2' => 'Sample Ingredient 2', 'measurement2' => 'Sample Measurement 2' }, 'instructions' => 'Sample Instruction' } }
+    new_recipe = { 'recipe' => { 'name' => 'sample name edited', 'img_url' => 'sample.jpg', 'video_url' => 'https://www.youtube.com/embed/m6jkzIHMEdg', 'ingredient_hash' => { 'ingredient1' => { 'name' => 'sample name 1', 'measurement' => '1111' }, 'ingredient2' => { 'name' => 'sample name 2', 'measurement' => '22222' }, 'ingredient3' => { 'name' => 'sample name 3', 'measurement' => '3333' }, 'ingredient4' => { 'name' => '', 'measurement' => '' } }, 'instructions' => 'sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1' } }
 
     post '/recipes', params: new_recipe
   end
 
   it 'Modify a recipe' do
     # edited recipe
-    edited_recipe = { 'recipe' => { 'name' => 'Sample Recipe Edited', 'img_url' => 'https://www.themealdb.com/images/media/meals/n7qnkb1630444129.jpg', 'video_url' => 'https://www.youtube.com/watch?v=v2oCIDFP4oU&list=RDv2oCIDFP4oU&start_radio=1', 'ingredient' => { 'name1' => 'Sample Ingredient 1 Edited', 'measurement1' => 'Sample Measurement 1 Edited', 'name2' => 'Sample Ingredient 2', 'measurement2' => 'Sample Measurement 2' }, 'instructions' => 'Sample Instruction Edited' } }
+    edited_recipe = { 'recipe' => { 'name' => 'sample edited edited', 'img_url' => 'sample.jpg', 'video_url' => 'https://www.youtube.com/embed/m6jkzIHMEdg', 'ingredient_hash' => { 'ingredient1' => { 'name' => 'sample name 1', 'measurement' => '1111' }, 'ingredient2' => { 'name' => 'sample edited 2', 'measurement' => '22222' }, 'ingredient3' => { 'name' => 'sample name 3', 'measurement' => '3333' }, 'ingredient4' => { 'name' => '', 'measurement' => '' } }, 'instructions' => 'sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample edited 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1' } }
 
     patch "/recipes/#{user.recipes.first.id}", { params: edited_recipe }
     expect(response).to redirect_to("/recipes/#{user.recipes.first.id}")

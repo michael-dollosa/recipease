@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       # delete all ingredients to create new via edit
       @recipe.ingredients.delete_all
-      parse_ingredient_data(modified_recipe[:ingredient]).each do |name, measurement|
+      parse_ingredient_data(modified_recipe[:ingredient_hash]).each do |name, measurement|
         @recipe.ingredients.create(
           recipe_id: @recipe.id,
           name: name,
@@ -50,9 +50,9 @@ class RecipesController < ApplicationController
     @recipe.video_url = parse_youtube_url(new_recipe[:video_url])
     @recipe.instructions = new_recipe[:instructions]
     @recipe.save
-
+    # parse_ingredient_data(new_recipe[:ingredient_hash])
     if @recipe.save
-      parse_ingredient_data(new_recipe[:ingredient]).each do |name, measurement|
+      parse_ingredient_data(new_recipe[:ingredient_hash]).each do |name, measurement|
         @recipe.ingredients.create(
           recipe_id: @recipe.id,
           name: name,
@@ -84,13 +84,10 @@ class RecipesController < ApplicationController
 
   def parse_ingredient_data(hash)
     new_hash = {}
-    count = 0
-    hash.each do |key, _val|
-      next if key == "measurement#{count + 1}"
-      break if hash["name#{count + 1}"].nil? || hash["name#{count + 1}"] == ''
+    hash.each do |_key, val|
+      break if val['name'].nil? || val['name'] == ''
 
-      new_hash[hash["name#{count + 1}"]] = hash["measurement#{count + 1}"]
-      count += 1
+      new_hash[val['name']] = val['measurement']
     end
     new_hash
   end

@@ -37,13 +37,13 @@
           <div class="name">
             <div class="field">
               <%= f.label :name %><br />
-              <%= f.text_field "ingredient[name#{index+1}]", autofocus: true, required: true, value: ingredient.name %>
+              <%= f.text_field "ingredient_hash[ingredient#{index+1}[name]]", autofocus: true, required: true, value: ingredient.name %>
             </div>
           </div>
           <div class="measurement">
             <div class="field">
               <%= f.label :measurement %><br />
-              <%= f.text_field "ingredient[measurement#{index+1}]", autofocus: true, required: true, value: ingredient.measurement %>
+              <%= f.text_field "ingredient_hash[ingredient#{index+1}[measurement]]", autofocus: true, required: true, value: ingredient.measurement %>
             </div>
           </div>
         </div>

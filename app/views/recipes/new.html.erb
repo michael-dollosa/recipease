@@ -36,13 +36,13 @@
           <div class="name">
             <div class="field">
               <%= f.label :name %><br />
-              <%= f.text_field "ingredient[name1]", autofocus: true, required: true %>
+              <%= f.text_field "ingredient_hash[ingredient1[name]]", autofocus: true, required: true %>
             </div>
           </div>
           <div class="measurement">
             <div class="field">
               <%= f.label :measurement %><br />
-              <%= f.text_field "ingredient[measurement1]", autofocus: true, required: true %>
+              <%= f.text_field "ingredient_hash[ingredient1[measurement]]", autofocus: true, required: true %>
             </div>
           </div>
         </div>
