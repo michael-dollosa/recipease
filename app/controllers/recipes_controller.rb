@@ -28,11 +28,11 @@ class RecipesController < ApplicationController
     if @recipe.save
       # delete all ingredients to create new via edit
       @recipe.ingredients.delete_all
-      parse_ingredient_data(modified_recipe[:ingredient_hash]).each do |name, measurement|
+      parse_ingredient_data(modified_recipe[:ingredient_hash]).each do |ingredient|
         @recipe.ingredients.create(
           recipe_id: @recipe.id,
-          name: name,
-          measurement: measurement
+          name: ingredient[0],
+          measurement: ingredient[1]
         )
       end
       redirect_to recipe_path(@recipe), success: 'Updated recipe successfully.'
@@ -52,11 +52,11 @@ class RecipesController < ApplicationController
     @recipe.save
     # parse_ingredient_data(new_recipe[:ingredient_hash])
     if @recipe.save
-      parse_ingredient_data(new_recipe[:ingredient_hash]).each do |name, measurement|
+      parse_ingredient_data(new_recipe[:ingredient_hash]).each do |ingredient|
         @recipe.ingredients.create(
           recipe_id: @recipe.id,
-          name: name,
-          measurement: measurement
+          name: ingredient[0],
+          measurement: ingredient[1]
         )
       end
       redirect_to root_path, success: 'Recipe added to your collection.'
@@ -83,12 +83,12 @@ class RecipesController < ApplicationController
   end
 
   def parse_ingredient_data(hash)
-    new_hash = {}
+    new_arr = []
     hash.each do |_key, val|
-      break if val['name'].nil? || val['name'] == ''
+      break if val['name'].nil? || val['name'] == '' || val['measurement'].nil? || val['measurement'] == ''
 
-      new_hash[val['name']] = val['measurement']
+      new_arr << [val['name'], val['measurement']]
     end
-    new_hash
+    new_arr
   end
 end
