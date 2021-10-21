@@ -85,7 +85,7 @@ class RecipesController < ApplicationController
   def parse_ingredient_data(hash)
     new_arr = []
     hash.each do |_key, val|
-      break if val['name'].nil? || val['name'] == '' || val['measurement'].nil? || val['measurement'] == ''
+      next if val['name'].nil? || val['name'] == '' || val['measurement'].nil? || val['measurement'] == ''
 
       new_arr << [val['name'], val['measurement']]
     end
