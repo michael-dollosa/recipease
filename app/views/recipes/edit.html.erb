@@ -46,7 +46,11 @@
               <%= f.text_field "ingredient_hash[ingredient#{index+1}[measurement]]", autofocus: true, required: true, value: ingredient.measurement %>
             </div>
           </div>
+          <% unless index == 0%>
+          <div class="close-btn" id="closeBtn"></div>
+          <% end %>
         </div>
+        
         <% end %>
         
       </div>
