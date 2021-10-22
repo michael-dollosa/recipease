@@ -18,37 +18,37 @@ RSpec.describe Recipe, type: :model do
     expect(recipe).to be_valid
   end
 
-  it 'is not valid without user id ' do
+  it 'is not valid without user id' do
     recipe.user_id = nil
     expect(recipe).not_to be_valid
   end
 
-  it 'is not valid without name ' do
+  it 'is not valid without name' do
     recipe.name = nil
     expect(recipe).not_to be_valid
   end
 
-  it 'is not valid without slug ' do
+  it 'is not valid without slug' do
     recipe.slug = nil
     expect(recipe).not_to be_valid
   end
 
-  it 'is not valid without img_url ' do
+  it 'is not valid without img_url' do
     recipe.img_url = nil
     expect(recipe).not_to be_valid
   end
 
-  it 'is not valid without instructions ' do
+  it 'is not valid without instructions' do
     recipe.instructions = nil
     expect(recipe).not_to be_valid
   end
 
-  it 'is not valid without video_url ' do
+  it 'is not valid without video_url' do
     recipe.video_url = nil
     expect(recipe).not_to be_valid
   end
 
-  it 'is not valid with invalid video_url ' do
+  it 'is not valid with invalid video_url' do
     recipe.video_url = 'www.your.com/v=12312312'
     expect(recipe).not_to be_valid
   end

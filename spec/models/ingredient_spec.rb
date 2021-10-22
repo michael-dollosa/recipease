@@ -15,17 +15,17 @@ RSpec.describe Ingredient, type: :model do
     expect(ingredient).to be_valid
   end
 
-  it 'is not valid without recipe id ' do
+  it 'is not valid without recipe id' do
     ingredient.recipe_id = nil
     expect(ingredient).not_to be_valid
   end
 
-  it 'is not valid without name id ' do
+  it 'is not valid without name id' do
     ingredient.name = nil
     expect(ingredient).not_to be_valid
   end
 
-  it 'is not valid without measurement ' do
+  it 'is not valid without measurement' do
     ingredient.measurement = nil
     expect(ingredient).not_to be_valid
   end
