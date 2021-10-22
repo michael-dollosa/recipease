@@ -88,9 +88,9 @@
     Subscribe to our Newsletter
     </div>
     <div class="newsletter-form">
-      <%= form_for :users do |f| %>
+      <%= form_with model: @newsletter do |f| %>
       <div class="field align-row">
-        <%= f.text_field :column_name, class: "landing" %>
+        <%= f.email_field :email, class: "landing" %>
         <%= f.submit "Subscribe", class: "btn-red wrap square" %>
       </div>
       <% end %>
