@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :newsletters, only: [:create]
+  resources :newsletters, only: [:create, :destroy]
   authenticated :user do 
     resources :searches, only: [:index, :create, :show], path: :search
     post '/search/copy/:id', to: 'searches#copy', as: 'search_copy'

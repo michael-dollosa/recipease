@@ -10,6 +10,17 @@ class NewslettersController < ApplicationController
     end
   end
 
+  def destroy
+    @email = Newsletter.find(params[:id])
+    @email.destroy
+
+    if @email.destroy
+      redirect_to root_path, success: 'You have unscribed to our newsletter.'
+    else
+      redirect_to root_path, danger: 'Something went wrong. Please try again'
+    end
+  end
+
   def newsletter_params
     params.require(:newsletter).permit(:email)
   end
