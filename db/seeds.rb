@@ -12,7 +12,7 @@ subscribers = [
   'doleebear+001@gmail.com',
   'doleebear+002@gmail.com',
   'doleebear+003@gmail.com',
-  'doleebear+004@gmail.com',
+  'doleebear+004@gmail.com',  
   'doleebear+005@gmail.com'
 ]
 
