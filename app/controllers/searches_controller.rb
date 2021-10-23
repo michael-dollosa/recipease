@@ -24,9 +24,7 @@ class SearchesController < ApplicationController
     if @response[:code] == 404
       redirect_to searches_path, danger: 'Kindy choose among the results.'
     else
-      @recipe_hash = (JSON.parse(@response[:body].body))['meals'][0]
-
-      # return
+      @recipe_hash = validate_video_url((JSON.parse(@response[:body].body))['meals'][0])
       @recipe = {
         name: @recipe_hash['strMeal'],
         thumbnail: @recipe_hash['strMealThumb'],
@@ -39,7 +37,7 @@ class SearchesController < ApplicationController
 
   def copy
     @response = Mealdb::Client.search_by_meal(params[:id])
-    @recipe_hash = (JSON.parse(@response[:body].body)['meals'][0])
+    @recipe_hash = validate_video_url((JSON.parse(@response[:body].body))['meals'][0])
     @recipe = Recipe.new
     @recipe.user_id = current_user.id
     @recipe.name = @recipe_hash['strMeal']
@@ -83,5 +81,13 @@ class SearchesController < ApplicationController
       ingredients_hash[@recipe_hash["strIngredient#{count + 1}"]] = @recipe_hash["strMeasure#{count + 1}"]
     end
     ingredients_hash
+  end
+
+  def validate_video_url(hash)
+    if hash['strYoutube'].nil? || hash['strYoutube'] == ''
+      id = Youtube::Client.search_video("how to cook #{hash['strMeal']}")
+      hash['strYoutube'] = "https://www.youtube.com/embed/#{id}"
+    end
+    hash
   end
 end
