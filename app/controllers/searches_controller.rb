@@ -48,15 +48,15 @@ class SearchesController < ApplicationController
     @recipe.video_url = parse_youtube_url(@recipe_hash['strYoutube'])
     @recipe.instructions = @recipe_hash['strInstructions']
     @recipe.save
-    parse_ingredients_create(@recipe_hash).each do |name, value|
-      @ingredients = @recipe.ingredients.create(
-        recipe_id: @recipe.id,
-        name: name,
-        measurement: value
-      )
-    end
 
     if @recipe.save
+      parse_ingredients_create(@recipe_hash).each do |name, value|
+        @ingredients = @recipe.ingredients.create(
+          recipe_id: @recipe.id,
+          name: name,
+          measurement: value
+        )
+      end
       redirect_to root_path, success: 'Recipe added to your collection.'
     else
       redirect_to searches_path, danger: 'Cannot copy recipe. Try again.'
