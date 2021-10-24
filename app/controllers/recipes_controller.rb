@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
     @recipe.img_url = modified_recipe[:img_url]
     @recipe.video_url = parse_youtube_url(modified_recipe[:video_url])
     @recipe.instructions = modified_recipe[:instructions]
+    @recipe.ref_id = @recipe.id
     @recipe.save
 
     if @recipe.save
@@ -52,6 +53,7 @@ class RecipesController < ApplicationController
     @recipe.save
     # parse_ingredient_data(new_recipe[:ingredient_hash])
     if @recipe.save
+      @recipe.ref_id = @recipe.id
       parse_ingredient_data(new_recipe[:ingredient_hash]).each do |ingredient|
         @recipe.ingredients.create(
           recipe_id: @recipe.id,

@@ -39,6 +39,7 @@ class SearchesController < ApplicationController
     @response = Mealdb::Client.search_by_meal(params[:id])
     @recipe_hash = validate_video_url((JSON.parse(@response[:body].body))['meals'][0])
     @recipe = Recipe.new
+    @recipe.ref_id = @recipe_hash['idMeal']
     @recipe.user_id = current_user.id
     @recipe.name = @recipe_hash['strMeal']
     @recipe.slug = @recipe_hash['strMeal'].parameterize
@@ -56,8 +57,11 @@ class SearchesController < ApplicationController
         )
       end
       redirect_to root_path, success: 'Recipe added to your collection.'
-    else
+    elsif Recipe.find_by(ref_id: @recipe.ref_id).nil?
       redirect_to searches_path, danger: 'Cannot copy recipe. Try again.'
+    else
+      redirect_to searches_path, danger: 'You already have an exact copy in your collection. Kindly modify or update it first to avoid duplication.'
+
     end
   end
 
