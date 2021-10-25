@@ -4,6 +4,8 @@ class User < ApplicationRecord
   after_create :send_welcome_email, :subscribe_newsletter
   has_many :recipes, dependent: :destroy
   validates :email, :password, presence: true
+  validates :username, uniqueness: true, presence: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

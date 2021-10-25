@@ -12,12 +12,23 @@
         <%= link_to 'Collection', recipes_path, class: "nav-link" %>
         <%= link_to 'Create Recipe', new_recipe_path, class: "nav-link" %>
         <%= link_to 'Search', searches_path, class: "nav-link" %>
+        <%= link_to 'Settings', root_path, class: "nav-link mobile" %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link mobile" %>
       </ul>
 
-      <div class="nav-user-links">
+      <%# <div class="nav-user-links">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-red desktop" %>
+      <%# </div> %>
+      <div class="nav-item dropdown desktop">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Hi <%= current_user.username.capitalize %>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
+          <%= link_to 'Settings', root_path, class: "nav-link desktop" %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link desktop" %>
+        </ul>
       </div>
+        
     </div>
 </nav>
 <% else %>

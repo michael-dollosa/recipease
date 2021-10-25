@@ -16,8 +16,19 @@ subscribers = [
   'doleebear+005@gmail.com'
 ]
 
+
 subscribers.each do |email|
   Newsletter.create(email: email)
 end
 
 puts "subsribers created"
+
+5.times do |count|
+  User.create(
+    email: "test#{count}@test.com",
+    username: "test#{count}",
+    password: "test12345"
+  )
+end
+
+puts "users created"

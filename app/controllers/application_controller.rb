@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # adding flashtypes based on bootstrap
   add_flash_types :danger, :info, :warning, :success, :light, :dark, :primary
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
@@ -16,5 +17,12 @@ class ApplicationController < ActionController::Base
 
     id = url_regexp.match(url)[1]
     "https://www.youtube.com/embed/#{id}"
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[fullname username])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[fullname username])
   end
 end
