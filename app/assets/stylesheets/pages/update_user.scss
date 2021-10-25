@@ -4,18 +4,28 @@
   @include flex-col();
   >.container{
     @include flex-row();
+    justify-content: space-between;
     flex-direction: row-reverse;
+    @media only screen and (max-width: 770px) {
+      @include flex-row-center();
+    }
     >.image{
       // min-width: 40rem;
       // max-width: 40rem;
-      width: 40rem;
+      width: 43rem;
       height: 80vh;
       background-image: image_url("user-profile.svg");
       background-size: fit;
       background-repeat: no-repeat;
+      @media only screen and (max-width: 770px) {
+        display: none;
+      }
     }
     >.information{
-      width: 60%;
+      width: 40%;
+      @media only screen and (max-width: 770px) {
+        width: 80%;
+      }
       >h2{
         font-family: 'Noto Sans', sans-serif;
         font-size: $font-size-5;

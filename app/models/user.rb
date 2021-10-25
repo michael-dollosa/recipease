@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   validates :email, presence: true
   validates :username, uniqueness: true, presence: true
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
