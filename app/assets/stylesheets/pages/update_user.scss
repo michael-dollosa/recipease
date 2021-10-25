@@ -1,0 +1,41 @@
+.container-user-update{
+  width: 100%;
+  min-height: 90vh;
+  @include flex-col();
+  >.container{
+    @include flex-row();
+    flex-direction: row-reverse;
+    >.image{
+      // min-width: 40rem;
+      // max-width: 40rem;
+      width: 40rem;
+      height: 80vh;
+      background-image: image_url("user-profile.svg");
+      background-size: fit;
+      background-repeat: no-repeat;
+    }
+    >.information{
+      width: 60%;
+      >h2{
+        font-family: 'Noto Sans', sans-serif;
+        font-size: $font-size-5;
+        font-weight: 700;
+        color: $color-blue-4;
+      }
+      >p{
+        margin-top: 1rem;
+        text-align: center;
+        font-size: $font-size-0;
+        font-weight: 300;
+        color: $color-blue-4;
+        >a{
+          color: $color-red-4;
+          font-weight: 500;
+        }
+      }
+    }
+
+    
+    
+  }
+}

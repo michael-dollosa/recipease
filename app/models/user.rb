@@ -2,10 +2,11 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   after_create :send_welcome_email, :subscribe_newsletter
+  after_destroy :remove_subscriber
   has_many :recipes, dependent: :destroy
-  validates :email, :password, presence: true
+  validates :email, presence: true
   validates :username, uniqueness: true, presence: true
-
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -18,5 +19,9 @@ class User < ApplicationRecord
   def subscribe_newsletter
     # only proceeds when email is not yet in newsletter model
     Newsletter.create(email: email) if Newsletter.where(email: email).empty?
+  end
+
+  def remove_subscriber
+    Newsletter.find_by(email: email).delete
   end
 end
