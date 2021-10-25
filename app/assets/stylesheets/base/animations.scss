@@ -1,0 +1,18 @@
+@keyframes moveInBottom {
+  /* start of animation */
+  0% {
+      opacity: 0;
+      transform: translateY(2rem); /* animate in X direction */
+  }
+
+  80% {
+      opacity: 1;
+      transform: translateY(-0.6rem); /* animate in X direction */
+  }
+
+  /* end of animation */
+  100% {
+      opacity: 1;
+      transform: translateY(0); /* translate 0 means to be in the original position*/
+  }
+}

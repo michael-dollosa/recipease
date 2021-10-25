@@ -57,6 +57,7 @@
   }
 
   >.container-form{
+    @include animate-move-up();
     // background-color: blue;
     width: 60%;
     height: 100%;

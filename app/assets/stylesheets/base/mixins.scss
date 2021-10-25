@@ -81,3 +81,9 @@
     font-weight: 500;
   }
 }
+
+@mixin animate-move-up(){
+  animation-name: moveInBottom;
+  animation-duration: .7s;
+  animation-timing-function: ease-out;
+}

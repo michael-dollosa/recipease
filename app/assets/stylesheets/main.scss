@@ -4,10 +4,13 @@
 @import "bootstrap/scss/bootstrap";
 //import variables first
 @import "base/variable";
+//import animations
+@import "base/animations";
 //import mixins
 @import "base/mixins";
 //import css reset
 @import "base/reset";
+
 
 @import "bootstrap_override/*";
 @import "components/*";

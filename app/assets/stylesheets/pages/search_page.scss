@@ -29,6 +29,7 @@
 
     >.search-result{
       width: 100%;
+      @include animate-move-up();
       >.search-result-container{
         width: 100%;
         @include flex-row();

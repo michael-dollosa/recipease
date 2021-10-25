@@ -5,6 +5,7 @@
   >.container{
     width: 100%;
     >form{
+      @include animate-move-up();
       width: 100%;
       .label{
         font-family: 'Noto Sans', sans-serif;
