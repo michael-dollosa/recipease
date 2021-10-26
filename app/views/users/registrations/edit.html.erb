@@ -10,7 +10,7 @@
         <h5>Account Type:</h5>
         <% if current_user.payment.account_type == "free"%>
         <h5 class="free">Free</h5>
-        <%= link_to "Upgrade to premium?", root_path %>
+        <%= link_to "Upgrade to premium?", payments_path, method: :post %>
         <% else %>
         <h5 class="pro">Premium</h5>
         <% end %>

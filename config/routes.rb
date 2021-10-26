@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :newsletters, only: [:create, :destroy]
   authenticated :user do 
     resources :payments, only: [:create]
+    resources :webhooks, only: [:create]
     resources :searches, only: [:index, :create, :show], path: :search
     post '/search/copy/:id', to: 'searches#copy', as: 'search_copy'
     resources :recipes
