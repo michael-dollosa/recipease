@@ -27,6 +27,35 @@
       @media only screen and (max-width: 770px) {
         width: 80%;
       }
+      >.stripe-info{
+        @include flex-row();
+        align-content: center;
+        margin: 2rem 0;
+        h5{
+          font-size: $font-size-1;
+
+          &.free{
+            border: 1px solid #5ae75a;
+            padding: 3px;
+            color: #5ae75a;
+            margin-left: 1rem;
+          }
+
+          &.pro{
+            border: 1px solid $color-red-4;
+            padding: 3px;
+            color: $color-red-4;
+            margin-left: 1rem;
+          }
+        }
+        a{
+          margin-left: 1rem;
+          // margin-top: 5px;
+          color: $color-red-4;
+          font-size: $font-size-0;
+          font-style: italic;
+        }
+      }
       >h2{
         font-family: 'Noto Sans', sans-serif;
         font-size: $font-size-5;

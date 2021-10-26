@@ -5,6 +5,16 @@
     </div>
 
     <div class="information">
+      <h2>Account Details</h2>
+      <section class="stripe-info">
+        <h5>Account Type:</h5>
+        <% if current_user.payment.account_type == "free"%>
+        <h5 class="free">Free</h5>
+        <%= link_to "Upgrade to premium?", root_path %>
+        <% else %>
+        <h5 class="pro">Premium</h5>
+        <% end %>
+      </section>
       <h2>My Profile</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
