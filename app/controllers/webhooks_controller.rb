@@ -31,8 +31,10 @@ class WebhooksController < ApplicationController
       Rails.logger.debug 'Payment checkout succeeded!'
       puts JSON.parse(request.body.read)
       puts 'trying hash'
-      puts JSON.parse(request.body.read)["payment_intent"]
-      @payment_intent = JSON.parse(request.body.read)["payment_intent"]
+      puts JSON.parse(request.body.read)["data"]["object"]["payment_intent"]
+      puts 'trying hash 2'
+      puts JSON.parse(request.body.read).data.object.payment_intent
+      @payment_intent = JSON.parse(request.body.read)["data"]["object"]["payment_intent"]
       @payment = Payment.find_by(payment_intent: @payment_intent)
       @payment.account_type = 'premium'
       @payment.save
