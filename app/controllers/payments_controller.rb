@@ -9,9 +9,18 @@ class PaymentsController < ApplicationController
         price: price,
         quantity: 1
       }],
+      metadata: {
+        user_id: current_user.id,
+        email: current_user.email
+      },
       success_url: payment_success_url,
       cancel_url: payment_cancel_url
                                                 })
+    #record user payment intent
+    @payment_status = current_user.payment
+    @payment_status.payment_intent = @session.payment_intent
+    @payment_status.save
+    
     redirect_to @session.url
   end
 

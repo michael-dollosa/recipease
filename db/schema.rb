@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_201215) do
   create_table "payments", force: :cascade do |t|
     t.integer "user_id"
     t.string "account_type"
+    t.string "payment_intent"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
