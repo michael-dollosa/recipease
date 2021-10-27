@@ -18,15 +18,15 @@ class WebhooksController < ApplicationController
 
     # Handle the event
     case event.type
-    when 'payment_intent.succeeded'
-      payment_intent = event.data.object # contains a Stripe::PaymentIntent
-      Rails.logger.debug { "Payment for #{payment_intent['amount']} succeeded." }
-      # Then define and call a method to handle the successful payment intent.
-      # handle_payment_intent_succeeded(payment_intent)
-    when 'payment_method.attached'
-      payment_method = event.data.object # contains a Stripe::PaymentMethod
-      # Then define and call a method to handle the successful attachment of a PaymentMethod.
-      # handle_payment_method_attached(payment_method)
+    # when 'payment_intent.succeeded'
+    #   payment_intent = event.data.object # contains a Stripe::PaymentIntent
+    #   Rails.logger.debug { "Payment for #{payment_intent['amount']} succeeded." }
+    #   # Then define and call a method to handle the successful payment intent.
+    #   # handle_payment_intent_succeeded(payment_intent)
+    # when 'payment_method.attached'
+    #   payment_method = event.data.object # contains a Stripe::PaymentMethod
+    #   # Then define and call a method to handle the successful attachment of a PaymentMethod.
+    #   # handle_payment_method_attached(payment_method)
     when 'checkout.session.completed'
       Rails.logger.debug 'Payment checkout succeeded!'
       @payment_intent = JSON.parse(request.body.read)["data"]["object"]["payment_intent"]
@@ -36,6 +36,6 @@ class WebhooksController < ApplicationController
     else
       Rails.logger.debug { "Unhandled event type: #{event.type}" }
     end
-    status 200
+    # status 200
   end
 end
