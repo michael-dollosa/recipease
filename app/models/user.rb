@@ -27,6 +27,6 @@ class User < ApplicationRecord
   end
 
   def set_payment_type
-    self.create_payment(account_type: 'free')
+    create_payment(account_type: 'free')
   end
 end

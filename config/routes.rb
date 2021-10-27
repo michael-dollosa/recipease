@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :webhooks, only: [:create]
   authenticated :user do 
     resources :payments, only: [:create]
+    get '/payments/success', to: 'payments#success', as: 'payment_success'
+    get '/payments/cancelled', to: 'payments#cancel', as: 'payment_cancel'
     resources :searches, only: [:index, :create, :show], path: :search
     post '/search/copy/:id', to: 'searches#copy', as: 'search_copy'
     resources :recipes
