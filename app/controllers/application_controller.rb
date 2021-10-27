@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def check_account_type
+    @count = current_user.recipes.count
+    redirect_back fallback_location: root_path, danger: 'You can only have a total of 20 recipes for free account. Upgrade to Premium and enjoy unlimited recipes!' if @count >= 20 && current_user.payment.account_type == 'free'
+  end
+
   def parse_youtube_url(url)
     url_regexp = %r{(?:.be/|/watch\?v=|/(?=p/))([\w/\-]+)}
     # url_regexp = %r{youtube.com.*(?:\/|v=)(.+)}

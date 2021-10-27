@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  before_action :check_account_type, only: [:copy]
+
   def index
     # sample suggestion for user
     @result = Mealdb::Client.search_by_ingredient('chicken breast')
@@ -46,9 +48,12 @@ class SearchesController < ApplicationController
     @recipe.img_url = @recipe_hash['strMealThumb']
     @recipe.video_url = parse_youtube_url(@recipe_hash['strYoutube'])
     @recipe.instructions = @recipe_hash['strInstructions']
-    @recipe.save
 
-    if @recipe.save
+    case current_user.recipes.find_by(ref_id: params[:id]).present?
+    when true
+      redirect_to searches_path, danger: 'You already have an exact copy in your collection. Kindly modify or update it first to avoid duplication.'
+    when false
+      @recipe.save
       parse_ingredients_create(@recipe_hash).each do |name, value|
         @ingredients = @recipe.ingredients.create(
           recipe_id: @recipe.id,
@@ -57,11 +62,8 @@ class SearchesController < ApplicationController
         )
       end
       redirect_to root_path, success: 'Recipe added to your collection.'
-    elsif Recipe.find_by(ref_id: @recipe.ref_id).nil?
-      redirect_to searches_path, danger: 'Cannot copy recipe. Try again.'
     else
-      redirect_to searches_path, danger: 'You already have an exact copy in your collection. Kindly modify or update it first to avoid duplication.'
-
+      redirect_to searches_path, danger: 'Cannot copy recipe. Try again.'
     end
   end
 
@@ -93,5 +95,9 @@ class SearchesController < ApplicationController
       hash['strYoutube'] = "https://www.youtube.com/embed/#{id}"
     end
     hash
+  end
+
+  def check_duplicate_copy(id)
+    redirect_to searches_path, danger: 'You already have an exact copy in your collection. Kindly modify or update it first to avoid duplication.' unless current_user.recipes.find_by(ref_id: id).nil?
   end
 end

@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :check_account_type, only: %i[new create]
+
   def index
     @recipes = current_user.recipes
   end

@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.delete_all
 
 subscribers = [
   'doleebear@gmail.com',
@@ -32,3 +33,14 @@ puts "subsribers created"
 end
 
 puts "users created"
+
+#create 20 recipes
+User.all.each do |user|
+  20.times do |count|
+    user.recipes.create(
+      { 'name' => "Sample Recipe #{count}", 'img_url' => 'sample.jpg', 'video_url' => 'https://www.youtube.com/embed/m6jkzIHMEdg', 'instructions' => 'sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1sample name 1' }
+    )
+  end
+end
+
+puts "users recipes created"
