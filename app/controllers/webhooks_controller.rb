@@ -33,6 +33,7 @@ class WebhooksController < ApplicationController
       @payment = Payment.find_by(payment_intent: @payment_intent)
       @payment.account_type = 'premium'
       @payment.save
+      ReceiptMailer.receipt_email(@payment).deliver_now
     else
       Rails.logger.debug { "Unhandled event type: #{event.type}" }
     end
