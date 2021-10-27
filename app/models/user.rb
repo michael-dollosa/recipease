@@ -4,7 +4,7 @@ class User < ApplicationRecord
   after_create :send_welcome_email, :subscribe_newsletter, :set_payment_type
   after_destroy :remove_subscriber
   has_many :recipes, dependent: :destroy
-  has_one :payment
+  has_one :payment, dependent: :destroy
   validates :email, presence: true
   validates :username, uniqueness: true, presence: true
 
