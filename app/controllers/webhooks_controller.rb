@@ -29,7 +29,10 @@ class WebhooksController < ApplicationController
       # handle_payment_method_attached(payment_method)
     when 'checkout.session.completed'
       Rails.logger.debug 'Payment checkout succeeded!'
-      puts JSON.parse(request.body.read)
+      @payment_intent JSON.parse(request.body.read)["payment_intent"]
+      @payment = Payment.find_by(payment_intent: @payment_intent)
+      @payment.account_type = 'premium'
+      @payment.save
     else
       Rails.logger.debug { "Unhandled event type: #{event.type}" }
     end
