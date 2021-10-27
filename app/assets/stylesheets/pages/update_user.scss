@@ -35,16 +35,20 @@
           font-size: $font-size-1;
 
           &.free{
-            border: 1px solid #5ae75a;
-            padding: 3px;
-            color: #5ae75a;
+            // border: 1px solid #5ae75a;
+            background-color: #5ae75a;
+            border-radius: 5px;
+            padding: 3px 7px;
+            color: white;
             margin-left: 1rem;
           }
 
           &.pro{
-            border: 1px solid $color-red-4;
+            // border: 1px solid $color-red-4;
+            background-color: $color-red-4;
+            border-radius: 5px;
             padding: 3px;
-            color: $color-red-4;
+            color: white;
             margin-left: 1rem;
           }
         }
