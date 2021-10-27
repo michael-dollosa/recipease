@@ -29,7 +29,7 @@ class WebhooksController < ApplicationController
       # handle_payment_method_attached(payment_method)
     when 'checkout.session.completed'
       Rails.logger.debug 'Payment checkout succeeded!'
-      @payment = current_user.payment
+      @payment = Payment.find_by(user_id: current_user.id)
       @payment.account_type = 'premium'
       @payment.save
     else
