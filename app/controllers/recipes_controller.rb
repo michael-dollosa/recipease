@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :check_account_type, only: %i[new create]
   rescue_from ActiveRecord::RecordNotFound, with: :handle_error
   def index
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.order(updated_at: :desc)
   end
 
   def show
@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
           measurement: ingredient[1]
         )
       end
+      @recipe.save!
       redirect_to recipe_path(@recipe), success: 'Updated recipe successfully.'
     else
       redirect_back fallback_location: root_path, danger: 'Failed updating recipe. Try again.'
