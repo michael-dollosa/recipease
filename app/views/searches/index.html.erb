@@ -3,7 +3,7 @@
     <%= form_with url: searches_path, method: :post do |form| %>
     <div class="field">
       <div class="search-icon"></div>
-      <%= text_field_tag(:search, nil, placeholder: "Search ingredient e.g. eggs,chicken,etc..") %>
+      <%= text_field_tag(:search, nil, placeholder: "Search ingredient e.g. eggs,chicken,etc..", autocomplete: 'off') %>
     </div>
     <% end %>
     <section class="search-label">

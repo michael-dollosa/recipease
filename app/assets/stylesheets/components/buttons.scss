@@ -1,5 +1,6 @@
 .btn-red{
   background: linear-gradient(0deg, #E41E4E -36.36%, rgba(242, 85, 123, 0.71) 134.55%);
+  // background-color: $color-red-4;
   box-shadow: 0px 2px 8px 2px rgba(228, 30, 78, 0.25);
   border-radius: 50px;
   font-weight: 700;
@@ -8,6 +9,17 @@
   display: block;
   width: fit-content;
   transition: all .1s ease-in;
+
+  &.outline{
+    background: white;
+    border: 1px solid $color-red-4;
+    color: $color-red-4;
+    box-shadow: none;
+    &:hover{
+      color: $color-red-4;
+    }
+  }
+
   &:hover{
     color: white;
   }

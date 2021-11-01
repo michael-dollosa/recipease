@@ -11,11 +11,11 @@
         <div class="details">
           <div class="field">
             <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true, required: true %>
+            <%= f.text_field :name, autofocus: true, required: true, autocomplete: 'off' %>
             <%= f.label :image_url %><br />
-            <%= f.text_field :img_url, autofocus: true, required: true %>
+            <%= f.text_field :img_url, autofocus: true, required: true, autocomplete: 'off' %>
             <%= f.label :video_url %><br />
-            <%= f.text_field :video_url, autofocus: true, required: true %>
+            <%= f.text_field :video_url, autofocus: true, required: true, autocomplete: 'off' %>
           </div>
         </div>
 
@@ -36,13 +36,13 @@
           <div class="name">
             <div class="field">
               <%= f.label :name %><br />
-              <%= f.text_field "ingredient_hash[ingredient1[name]]", autofocus: true, required: true %>
+              <%= f.text_field "ingredient_hash[ingredient1[name]]", autofocus: true, required: true, autocomplete: 'off' %>
             </div>
           </div>
           <div class="measurement">
             <div class="field">
               <%= f.label :measurement %><br />
-              <%= f.text_field "ingredient_hash[ingredient1[measurement]]", autofocus: true, required: true %>
+              <%= f.text_field "ingredient_hash[ingredient1[measurement]]", autofocus: true, required: true, autocomplete: 'off' %>
             </div>
           </div>
           <%# <div class="close-btn" id="closeBtn"></div> %>

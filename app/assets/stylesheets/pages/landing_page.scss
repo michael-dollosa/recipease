@@ -7,8 +7,22 @@
   font-size: $font-size-logo;
 }
 
+.video{
+  margin-top: 2rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+  >video{
+    max-width: 60vw;
+    @media only screen and (max-width: 450px) {
+      max-width: 80vw;
+    }
+  }
+}
+
 .container-landing{
+  
   @include flex-row-center();
+  min-height: 70vh;
   justify-content: space-evenly;
   >.label{
     width: 40%;
@@ -52,7 +66,7 @@
 
   >.image{
     height: 100%;
-    width: 50%;
+    width: 55%;
     // background-color: lavenderblush;
     @include flex-row-center();
     >img{
@@ -91,7 +105,7 @@
 }
 
 .container-landing-body{
-  margin-top: 10vw;
+  margin-top: 18vh;
   @include flex-col-center();
   @media only screen and (max-width: 726px) {
     margin-top: 8rem;
@@ -99,7 +113,7 @@
   >.label{
     >.header{
       color: $color-blue-4;
-      font-size: $font-size-10;
+      font-size: $font-size-8;
       font-family: 'Noto Sans', sans-serif;
       font-weight: 700;
       line-height: 7rem;
@@ -108,17 +122,115 @@
         line-height: 5rem;
       }
       @media only screen and (max-width: 450px) {
-        font-size: $font-size-6;
-        line-height: 4rem;
+        font-size: $font-size-4;
+        line-height: 1.5;
       }
     }
     >.subheader{
       text-align: center;
-      padding-top: 2rem;
+      padding-top: 1rem;
       font-size: $font-size-1;
       color: $color-black-2;
       @media only screen and (max-width: 450px) {
         font-size: $font-size-0;
+      }
+    }
+  }
+
+  >.tier{
+    @include flex-row-center();
+    align-items: flex-start;
+    padding: 0 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    @media only screen and (max-width: 807px) {
+      @include flex-col-center();
+    }
+    >*{
+      @include flex-col();
+      height: 40rem;
+      width: 30rem;
+      margin: 0 2rem;
+      padding: 2rem;
+      font-size: $font-size-1;
+      font-weight: 200;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+      >h1, h5{
+        width: 100%;
+        text-align: center;
+      }
+
+      >h1{
+        font-size: $font-size-6;
+        font-weight: 800;
+        font-family: 'Noto Sans', sans-serif;
+      }
+
+      >h5{
+        margin-bottom: 2rem;
+        font-size: $font-size-2;
+      }
+
+      @media only screen and (max-width: 807px) {
+        margin: 2rem 0;
+        height: 35rem;
+        width: 26rem;
+        >h1{
+          font-size: $font-size-4;
+          font-weight: 800;
+          font-family: 'Noto Sans', sans-serif;
+        }
+  
+        >h5{
+          margin-bottom: 2rem;
+          font-size: $font-size-1;
+        }
+      }
+    }
+
+   
+    >.free{
+      background-color: white;
+      border: 1px solid #E9E9E9;
+      >h1{
+        color: $color-red-4;
+      }
+      >.item{
+        @include flex-row();
+        margin-bottom: 1rem;
+        >.icon{
+          background-image: image-url("check-circle.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          min-height: 15px;
+          min-width: 15px;
+          margin-right: 1rem;
+        }
+        >.name{
+          
+        }
+      }
+    }
+
+    >.premium{
+      background-color: $color-red-4;
+      color: white !important;
+      
+      >.item{
+        @include flex-row();
+        margin-bottom: 1rem;
+        >.icon{
+          background-image: image-url("check-circle-white.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          min-height: 15px;
+          min-width: 15px;
+          margin-right: 1rem;
+        }
+        >.name{
+          
+        }
       }
     }
   }
@@ -214,31 +326,7 @@
         // }
       }
     }
-    // >.gallery-card::after{
-    //   z-index: -1;
-    //   content: '';
-    //   position: absolute;
-    //   border-radius: 5rem;
-    //   top: 0;
-    //   left: 0;
-    //   height: 30rem;
-    //   width: 30rem;
-    //   transform: rotate(-10deg);
-    //   background-color: $color-red-4;
-
-    //   @media only screen and (max-width: 1127px) {
-    //     height: 20rem;
-    //     width: 20rem;
-    //   }
-    //   @media only screen and (max-width: 726px) {
-    //     height: 30rem;
-    //     width: 30rem;
-    //   }
-    //   @media only screen and (max-width: 450px) {
-    //     height: 20rem;
-    //     width: 20rem;
-    //   }
-    // }
+    
   }
 }
 

@@ -16,84 +16,88 @@
       <%=image_tag("header-img2.png")%>
     </section>
   </section>
-
+</section>
+<section class="container">
   <section class="container-landing-body">
     <section class="label">
       <div class="header">
-        We’ve got something for <span class="highlight-red">everyone,</span>
+        Search any <span class="highlight-red">recipe</span> based on your main ingredient.
       </div>
       <div class="subheader">
         We have tons of recipes available at your disposal
       </div>
     </section>
 
-    <section class="gallery">
-      <div class="gallery-card">
-        <div class="food-img img-1">
-      
+    <section class="video">
+      <%= video_tag('landing-page-feature.mov', autoplay: true, loop: true, muted: 'muted') %>
+    </section>
+  </section>
+</section>
+
+<section class="container">
+  <section class="container-landing-body">
+    <section class="label">
+      <div class="header">
+        Create your own recipe and save it in your <span class="highlight-red">collection</span>.
+      </div>
+      <div class="subheader">
+        Create or update any recipes from your collection. You also have the ability to delete them if needed.
+      </div>
+    </section>
+
+    <section class="video">
+      <%= video_tag('landing-page-feature2.mov', autoplay: true, loop: true, muted: 'muted') %>
+    </section>
+  </section>
+</section>
+
+<section class="container">
+  <section class="container-landing-body">
+    <section class="label">
+      <div class="header">
+        Enjoy collecting unlimited recipes on <span class="highlight-red">premium</span>.
+      </div>
+      <div class="subheader">
+        Upgrade your account to preimium for a one time payment of only $5!
+      </div>
+    </section>
+
+    <section class="tier">
+      <div class="free">
+        <h1>Newbie</h1>
+        <h5>free</h5>
+        <div class="item">
+          <div class="icon"></div>
+          <div class="name">You create, copy, modify, and delete any recipe in your collection</div>
         </div>
-        <div class="food-name">
-          Walnut Roll Gužvara
+        <div class="item">
+          <div class="icon"></div>
+          <div class="name">Search any recipe based on main ingredient anytime</div>
+        </div>
+        <div class="item">
+          <div class="icon"></div>
+          <div class="name">Can only collect a maximum of 20 recipes</div>
         </div>
       </div>
 
-      <div class="gallery-card">
-        <div class="food-img img-2">
+      <div class="premium">
+        <h1>Chef</h1>
+        <h5>$5 one time payment</h5>
+        <div class="item">
+          <div class="icon"></div>
+          <div class="name">You create, copy, modify, and delete any recipe in your collection</div>
         </div>
-        <div class="food-name">
-          Chivito Uruguayo
+        <div class="item">
+          <div class="icon"></div>
+          <div class="name">Search any recipe based on main ingredient anytime</div>
+        </div>
+        <div class="item">
+          <div class="icon"></div>
+          <div class="name">Can collect unlimited number of recipes</div>
         </div>
       </div>
-
-      <div class="gallery-card">
-        <div class="food-img img-3">
-        </div>
-        <div class="food-name">
-          Croatian Lamb Peka
-        </div>
       </div>
     </section>
   </section>
-
-  <section class="container-landing-about">
-    <div class="container-section">
-      <div class="image img-1">
-      </div>
-      <div class="label">
-        <div class="header">
-          The <span class="highlight-red">perfect</span> app for you
-        </div>
-        <div class="subheader">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        </div>
-      </div>
-    </div>
-
-    <div class="container-section">
-      <div class="label">
-        <div class="header">
-          Create and collect <span class="highlight-red">recipes.</span>
-        </div>
-        <div class="subheader">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        </div>
-      </div>
-      <div class="image img-2">
-      </div>
-    </div>
-  </section>
-
-  <section class="container-landing-newsletter">
-    <div class="label">
-    Subscribe to our Newsletter
-    </div>
-    <div class="newsletter-form">
-      <%= form_with model: @newsletter do |f| %>
-      <div class="field align-row">
-        <%= f.email_field :email, class: "landing" %>
-        <%= f.submit "Subscribe", class: "btn-red wrap square" %>
-      </div>
-      <% end %>
-    </div>
-  </section>
 </section>
+
