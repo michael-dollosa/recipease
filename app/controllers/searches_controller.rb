@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   before_action :check_account_type, only: [:copy]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_error
   def index
     # sample suggestion for user
     @result = Mealdb::Client.search_by_ingredient('chicken breast')

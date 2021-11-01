@@ -15,4 +15,7 @@ Rails.application.routes.draw do
     root "recipes#index"
   end
   root to: "pages#landing_page", as: :unauthenticated_root
+  get '/page-not-found', action: :error404, controller: 'pages'
+  # path for unkown pages
+  get "*path" => 'pages#error404'
 end

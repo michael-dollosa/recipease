@@ -1,0 +1,22 @@
+.container-error_page{
+  @include flex-col-center();
+  text-align: center;
+  >.error-img{
+    // background-color: red;
+    background-image: image_url('error404.png');
+    width: 50%;
+    height: 40vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  >.label{
+    h1{
+      font-weight: 700;
+      color: $color-blue-4;
+    }
+    p{
+      font-size: $font-size-0;
+      color: $color-black-2;
+    }
+  }
+}

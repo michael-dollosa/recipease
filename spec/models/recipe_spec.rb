@@ -4,6 +4,7 @@ RSpec.describe Recipe, type: :model do
   subject(:recipe) do
     described_class.new(
       user_id: user.id,
+      ref_id: 123_345,
       name: 'Recipe Test',
       slug: 'Recipe-slug',
       img_url: 'sample_image.jpg',

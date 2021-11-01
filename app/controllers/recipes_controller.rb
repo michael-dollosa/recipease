@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :check_account_type, only: %i[new create]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_error
   def index
     @recipes = current_user.recipes
   end
@@ -52,10 +52,11 @@ class RecipesController < ApplicationController
     @recipe.img_url = new_recipe[:img_url]
     @recipe.video_url = parse_youtube_url(new_recipe[:video_url])
     @recipe.instructions = new_recipe[:instructions]
+    # provide dummy ref id
+    @recipe.ref_id = 999
     @recipe.save
     # parse_ingredient_data(new_recipe[:ingredient_hash])
     if @recipe.save
-      @recipe.ref_id = @recipe.id
       parse_ingredient_data(new_recipe[:ingredient_hash]).each do |ingredient|
         @recipe.ingredients.create(
           recipe_id: @recipe.id,
@@ -83,7 +84,7 @@ class RecipesController < ApplicationController
   private
 
   def recipes_params
-    params.require(:recipe).permit(:name, :img_url, :video_url, :instructions)
+    params.require(:recipe).permit(:name, :img_url, :video_url, :instructions, :ref_id)
   end
 
   def parse_ingredient_data(hash)
