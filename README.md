@@ -1,58 +1,43 @@
-# Hi there 👋
+# Recipease [website](https://dolee-recipease.herokuapp.com/)
 
-This repo serves as the main repo for our Rails Projects. 
+Recipease is a Ruby on Rails application for those who want to search and record recipes based on ingredients left at home. The application would help you search for recipes and give you information regarding the ingredients, and the procedures on how to cook them (with youtube videos).
 
+![image](https://user-images.githubusercontent.com/5262223/140482592-8e605816-2bd8-4e0b-afa2-46014edb78db.png)
 
-#### Version
-
+### Test Accounts you may use
+You may use account below to test the application. You may also create your own account.
 ```
-  Ruby 2.7.2
-  Rails 6.0.3.4
-  NodeJS 12.18.3
-  Yarn 1.22.4
-```
-
-#### Installation
-
-Fork this repo:
-![image](https://user-images.githubusercontent.com/9253881/111437757-6c527f00-873e-11eb-8d0a-862e4158f4ab.png)
-
-Then, clone your forked repo to your machine
-```
-  $ git clone git@github.com:<username>/rails-base-project.git <name of your app>
-  $ cd <name of your app>
+  Email: sample.account@test.com
+  Password: test12345
 ```
 
-#### Setup
+### Search Recipes with ease
+
+![image](https://user-images.githubusercontent.com/5262223/140482776-a3431ad2-4180-410b-90fe-ea5d2048019a.png)
+
+### Add searched recipes to your collection
+
+![image](https://user-images.githubusercontent.com/5262223/140482860-946be666-eb52-487f-b762-ac2cde3ac167.png)
+
+### Create, modify, or delete recipes
+
+![image](https://user-images.githubusercontent.com/5262223/140482900-31548308-c08b-46fe-ac81-903ea8ccf40f.png)
+
+### Enjoy collecting unlimited recipes by getting a premium account
+The application uses Stripe API to create payments. You may use below information to test a transaction
 
 ```
-  $ bundle install
-  $ rake db:setup
+  Card Information:
+  Card Number: 4242 4242 4242 4242
+  Expiry: 04/24
+  CVC: 424
 ```
 
-#### Starting the application
+![image](https://user-images.githubusercontent.com/5262223/140483019-f001953d-6247-4481-ac49-9f26c9036a90.png)
 
-```
-  $ rails server
-```
+#### Recieve your receipt via email after successful transaction
 
-#### How to run the test suite
-
-```
-  $ rspec
-```
-
-#### How to run the Ruby Linter
-
-```
-  $ rubocop
-```
-
-#### How to enable Github Workflow
-
-<img width="906" alt="Screen Shot 2021-03-23 at 10 10 52 PM" src="https://user-images.githubusercontent.com/9253881/112160501-2fe2bf80-8c25-11eb-8e2b-b9508711ec70.png">
-
-<img width="1244" alt="Screen Shot 2021-03-23 at 10 11 12 PM" src="https://user-images.githubusercontent.com/9253881/112160530-36713700-8c25-11eb-9f00-d69a3a36343f.png">
+![image](https://user-images.githubusercontent.com/5262223/140483410-c09ba045-197f-4bdc-9808-ffcf866710f2.png)
 
 
 
