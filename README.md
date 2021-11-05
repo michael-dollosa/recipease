@@ -1,6 +1,8 @@
-# Recipease [website](https://dolee-recipease.herokuapp.com/)
+# Recipease
 
 Recipease is a Ruby on Rails application for those who want to search and record recipes based on ingredients left at home. The application would help you search for recipes and give you information regarding the ingredients, and the procedures on how to cook them (with youtube videos).
+
+Visit the application [here](https://dolee-recipease.herokuapp.com/)
 
 ![image](https://user-images.githubusercontent.com/5262223/140482592-8e605816-2bd8-4e0b-afa2-46014edb78db.png)
 
