@@ -4,7 +4,7 @@
   box-shadow: 0px 2px 8px 2px rgba(228, 30, 78, 0.25);
   border-radius: 50px;
   font-weight: 700;
-  padding: 1.2rem;
+  padding: 0.8rem 1.2rem;
   color: white;
   display: block;
   width: fit-content;
@@ -15,8 +15,13 @@
     border: 1px solid $color-red-4;
     color: $color-red-4;
     box-shadow: none;
-    &:hover{
-      color: $color-red-4;
+    transition: .2s ease-in;
+    &:hover,
+    &:active,
+    &:focus{
+      // color: $color-red-4;
+      color: white;
+      background-color: $color-red-4;
     }
   }
 

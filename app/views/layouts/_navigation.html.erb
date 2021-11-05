@@ -19,7 +19,11 @@
       <%# <div class="nav-user-links">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-red desktop" %>
       <%# </div> %>
+      <% if current_user.payment.account_type == "free" %>
+      <%= link_to 'Upgrade', edit_user_registration_path, class: "btn-red outline desktop" %>
+      <% end %>
       <div class="nav-item dropdown desktop">
+        
         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
           Hi <%= current_user.username.capitalize %>
         </a>
